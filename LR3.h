@@ -11,7 +11,6 @@ using namespace std;
 
 class cow
 {
-	int* ptr; // указатель на какой‐либо участок памяти
 public:
 	cow(); //  конструктор
 	~cow();//  деструктор
@@ -19,6 +18,7 @@ public:
 	void get(cow cow1); //Функция возврата элементов данных
 	void inc_age(); //Увеличить возраст
 	void print_cow(); //Вывод на экран информации об одной корове
+	//int id;
 
 private:
 	int id;
@@ -94,7 +94,7 @@ void cow::set()
 
 	//cout << "\n № " << id << "\n ИМЯ: " << name << "\n ПОРОДА: " << breed << "\n КОРМ: " << food << "\n ВОЗРАСТ(лет): " << age << "\n ВЕС(кг): " << weight << "\n НАДОЙ(л/день): " << nadoi;
 	//num_cow++;
-	//while (getchar() != '\n');
+	while (getchar() != '\n');
 
 }
 
@@ -125,20 +125,23 @@ void cow::print_cow()
 
 class list_cow
 {
-	int* ptr; // указатель на какой‐либо участок памяти
 public:
 	list_cow(); //  конструктор
 	~list_cow();//  деструктор
-	void set(); //Функция инициализации элементов данных
-	void get(); //Функция возврата элементов данных
+	void add(cow cow1); //Функция инициализации элементов данных
+	cow get(cow cow1); //Функция возврата элементов данных
+	//void print_list();
 	void arr_inc(); //Функция увеличения размера массива
+	void print_list();
 
 private:
-	cow *arr_cow;
+	int num = 0;
+	cow arr_cow[10] = {};
 };
 
 list_cow::list_cow()
 {
+	//num = 0;
 	//*arr_cow = {};
 }
 
@@ -147,7 +150,32 @@ list_cow::~list_cow()
 
 }
 
-void list_cow::set()
+void list_cow::add(cow cow1)
+{
+	num++;
+	arr_cow[num-1] = cow1;
+}
+
+cow list_cow::get(cow cow1)
+{
+	/*cow cow2;
+	cow2 = arr_cow[num];
+	cow2.print_cow();*/
+	return (arr_cow[num - 1]);
+}
+
+void list_cow::print_list()
+{
+	cow cow2;
+	for (int i = 0; i < num; i++)
+	{
+		cow2 = arr_cow[i];
+		cow2.print_cow();
+	}
+}
+
+void list_cow::arr_inc()
 {
 
 }
+
