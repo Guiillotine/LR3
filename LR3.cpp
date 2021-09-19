@@ -13,17 +13,12 @@ int main()
     cow cow1;
     list_cow sp_cow1;
 
-    cow1.new_cow(); 
-    sp_cow1.add(cow1);
+    for (int i = 0; i < 4; i++)
+    {
+        cow1.new_cow();
+        sp_cow1.add(cow1);
+    }
 
-    cow1.new_cow();
-    sp_cow1.add(cow1);
-
-    cow1.new_cow();
-    sp_cow1.add(cow1);
-
-    cow1.new_cow();
-    sp_cow1.add(cow1);
-
-    sp_cow1.print_list();
+    //sp_cow1.print_list(); 
+    sp_cow1.inc_age_sp();
 }

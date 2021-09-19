@@ -18,10 +18,9 @@ public:
 	void get(cow cow1); //Функция возврата элементов данных
 	void inc_age(); //Увеличить возраст
 	void print_cow(); //Вывод на экран информации об одной корове
-	//int id;
 
 private:
-	int id;
+	//int id;
 	char name[50];
 	char breed[100]; //порода
 	char food[50];
@@ -32,7 +31,7 @@ private:
 
 cow::cow()
 {
-	id = 0;
+	//id = 0;
 	strcpy(name,"");
 	strcpy(breed, "");
 	strcpy(food, "");
@@ -49,14 +48,6 @@ cow::~cow()
 //void cow::set(int id0, char name0[], char breed0[], char food0[], int age0, int weight0, int nadoi0)
 void cow::new_cow()
 {
-	/*id = id0;
-	strcpy(name, name0);
-	strcpy(breed, breed0);
-	strcpy(food, food0);
-	age = age0;
-	weight = weight0;
-	nadoi = nadoi0;*/
-
 	SetConsoleCP(1251); //задаем кодировку для вывода символов на экран
 	SetConsoleOutputCP(1251); //задаем кодировку для ввода символов с клавиатуры в консоль
 	int a;
@@ -64,13 +55,14 @@ void cow::new_cow()
 	printf("\n Добавление новой коровы\n ");
 	for (int i = 0; i < 23; i++) printf("-");
 	printf("\n");
-	//id = num_cow + 1;
+	//id = num + 1;
 
 	printf("\n Введите кличку коровы: ");
 	gets_s(name);
 
 	printf("\n Введите породу коровы: ");
 	gets_s(breed); //gets_s для ввода с пробелами
+
 
 /*printf("\n Выберите корм для коровы: ");
 	for (int i = 0; i < num_food; i++)
@@ -83,6 +75,8 @@ void cow::new_cow()
 
 	strcpy(food, "Овёс");
 
+	//while (getchar() != '\n');
+
 	printf("\n Введите возраст коровы (лет): ");
 	cin >> age;
 
@@ -92,15 +86,13 @@ void cow::new_cow()
 	printf("\n Введите надой коровы (л/сут): ");
 	cin >> nadoi;
 
-	//cout << "\n № " << id << "\n ИМЯ: " << name << "\n ПОРОДА: " << breed << "\n КОРМ: " << food << "\n ВОЗРАСТ(лет): " << age << "\n ВЕС(кг): " << weight << "\n НАДОЙ(л/день): " << nadoi;
-	//num_cow++;
 	while (getchar() != '\n');
 
 }
 
 void cow::get(cow cow1)
 {
-	cow1.id = id;
+	//cow1.id = id;
 	strcpy(cow1.name, name);
 	strcpy(cow1.breed, breed);
 	strcpy(cow1.food, food);
@@ -109,10 +101,6 @@ void cow::get(cow cow1)
 	cow1.nadoi = nadoi;
 }
 
-void cow::inc_age()
-{
-	age++;
-}
 
 void cow::print_cow()
 {
@@ -121,8 +109,15 @@ void cow::print_cow()
 	cout << "\n ИМЯ: " << name << "\n ПОРОДА: " << breed << "\n КОРМ: " << food << "\n ВОЗРАСТ(лет): " << age << "\n ВЕС(кг): " << weight << "\n НАДОЙ(л/день): " << nadoi << endl;
 }
 
+/*void cow::inc_age()
+{
+	age++;
+}*/
 
-
+void cow::inc_age()
+{
+	age++;
+}
 
 
 class list_cow
@@ -132,9 +127,9 @@ public:
 	~list_cow();//  деструктор
 	void add(cow cow1); //Функция инициализации элементов данных
 	cow get(cow cow1); //Функция возврата элементов данных
-	//void print_list();
 	void arr_inc(); //Функция увеличения размера массива
 	void print_list();
+	void inc_age_sp(); //Увеличение возраста коровы на 1 год
 
 private:
 	int num = 0;
@@ -143,9 +138,7 @@ private:
 
 list_cow::list_cow()
 {
-	//arr_cow = (cow*)malloc(2 * sizeof(cow));
-	//num = 0;
-	//*arr_cow = {};
+	num = 0;
 }
 
 list_cow::~list_cow()
@@ -170,6 +163,7 @@ void list_cow::print_list()
 	cow cow2;
 	for (int i = 0; i < num; i++)
 	{
+		cout << "\n № " << i + 1;
 		cow2 = *(arr_cow + i);
 		cow2.print_cow();
 	}
@@ -224,23 +218,31 @@ void list_cow::arr_inc()
 		free(arr_cow2);*/
 
 	cow* arr_cow2 = new cow[num];
-	//arr_cow2 = (cow*)malloc(num * sizeof(cow));
 
 	for (int i = 0; i < num; i++)
 	{
 		*(arr_cow2 + i) = *(arr_cow + i);
 	}
-	//cow1 = {};
 	delete [] arr_cow;
-	//num_cow2 = num_cow + 10;
-	//arr_cow = (cow*)malloc((num + 1) * sizeof(cow));
 	arr_cow = new cow[num + 1];
 	for (int i = 0; i < num; i++)
 	{
 		*(arr_cow + i) = *(arr_cow2 + i);
 	}
-	//cow2 = {};
 	delete [] arr_cow2;
 
 }
 
+
+void list_cow::inc_age_sp()
+{
+	int a;
+	system("cls");
+	this->print_list();
+	cout << "\n Увеличение возраста коровы на один год \n --------------------------------------\n";
+	cout << "\n Введите номер коровы в списке, возраст которой нужно увеличить: ";
+	cin >> a;
+	(arr_cow + a - 1)->inc_age();
+	cout << "\n Возраст коровы № " << a << " изменён:\n";
+	(arr_cow + a - 1)->print_cow();
+}
