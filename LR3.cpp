@@ -10,14 +10,20 @@ int main()
 {
     SetConsoleCP(1251); //задаем кодировку для вывода символов на экран
     SetConsoleOutputCP(1251); //задаем кодировку для ввода символов с клавиатуры в консоль
-    cout << "Hello World!\n";
     cow cow1;
-    list_cow cow2;
-    cow1.set(); //void set(int id0, char name0[], char breed0[], char food0[], int age0, int weight0, int nadoi0); //Функция инициализации элементов данных
+    list_cow sp_cow1;
 
-    cow2.add(cow1);
-    cow1.set();
-    cow2.add(cow1);
-    cow2.print_list();
-   // cow1.print_cow();
+    cow1.new_cow(); 
+    sp_cow1.add(cow1);
+
+    cow1.new_cow();
+    sp_cow1.add(cow1);
+
+    cow1.new_cow();
+    sp_cow1.add(cow1);
+
+    cow1.new_cow();
+    sp_cow1.add(cow1);
+
+    sp_cow1.print_list();
 }

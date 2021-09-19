@@ -14,7 +14,7 @@ class cow
 public:
 	cow(); //  конструктор
 	~cow();//  деструктор
-	void set(); //Функция инициализации элементов данных
+	void new_cow(); //Функция инициализации элементов данных
 	void get(cow cow1); //Функция возврата элементов данных
 	void inc_age(); //Увеличить возраст
 	void print_cow(); //Вывод на экран информации об одной корове
@@ -47,7 +47,7 @@ cow::~cow()
 }
 
 //void cow::set(int id0, char name0[], char breed0[], char food0[], int age0, int weight0, int nadoi0)
-void cow::set()
+void cow::new_cow()
 {
 	/*id = id0;
 	strcpy(name, name0);
@@ -123,6 +123,8 @@ void cow::print_cow()
 
 
 
+
+
 class list_cow
 {
 public:
@@ -136,11 +138,12 @@ public:
 
 private:
 	int num = 0;
-	cow arr_cow[10] = {};
+	cow* arr_cow = new cow[1];
 };
 
 list_cow::list_cow()
 {
+	//arr_cow = (cow*)malloc(2 * sizeof(cow));
 	//num = 0;
 	//*arr_cow = {};
 }
@@ -152,16 +155,14 @@ list_cow::~list_cow()
 
 void list_cow::add(cow cow1)
 {
-	num++;
-	arr_cow[num-1] = cow1;
+	if (num > 0) this->arr_inc(); // увеличение размера динамического массива
+	*(arr_cow + num) = cow1;
+	num++; //Количество коров в списке
 }
 
 cow list_cow::get(cow cow1)
 {
-	/*cow cow2;
-	cow2 = arr_cow[num];
-	cow2.print_cow();*/
-	return (arr_cow[num - 1]);
+	return (*(arr_cow + num - 1));
 }
 
 void list_cow::print_list()
@@ -169,13 +170,77 @@ void list_cow::print_list()
 	cow cow2;
 	for (int i = 0; i < num; i++)
 	{
-		cow2 = arr_cow[i];
+		cow2 = *(arr_cow + i);
 		cow2.print_cow();
 	}
 }
 
 void list_cow::arr_inc()
 {
+	/*cow* arr_cow2;//Вспомогательный динамический массив типа cow
+	arr_cow2 = (cow*)malloc((num) * sizeof(cow));
+	//cow* arr_cow2 = new cow[num - 1]; //Вспомогательный динамический массив типа cow
+	for (int i = 0; i < (num - 1); i++)
+	{
+		//(arr_cow + 0)->print_cow();
+		*(arr_cow2 + i) = *(arr_cow + i);
+	}
+		//delete [num - 1] arr_cow;
+	free(arr_cow);
+	arr_cow = (cow*)malloc((num + 1) * sizeof(cow));
+	cout << "\n КОЛВО ЯЧЕЕК " << num + 1;
+
+	//cow* arr_cow = new cow[num];
+	for (int i = 0; i < num - 1; i++)
+	{
+		*(arr_cow + i) = *(arr_cow2 + i);
+		//(arr_cow + i)->print_cow();
+	}
+
+		//delete [num - 1] arr_cow2;
+	free(arr_cow2);
+	cout << "\n ЭТО СРАЗУ ПОСЛЕ ФУНКЦИИ УВЕЛИЧЕНИЯ МАССИВА ЭЛЕМЕНТ 0\n";
+	(arr_cow + 0)->print_cow();*/
+
+
+
+
+	/*cow* arr_cow2;
+	arr_cow2 = (cow*)malloc(num * sizeof(cow));
+
+		for (int i = 0; i < num; i++)
+		{
+			*(arr_cow2 + i) = *(arr_cow + i);
+		}
+		//cow1 = {};
+		free(arr_cow);
+		//num_cow2 = num_cow + 10;
+		arr_cow = (cow*)malloc((num + 1) * sizeof(cow));
+		for (int i = 0; i < num; i++)
+		{
+			*(arr_cow + i) = *(arr_cow2 + i);
+		}
+		//cow2 = {};
+		free(arr_cow2);*/
+
+	cow* arr_cow2 = new cow[num];
+	//arr_cow2 = (cow*)malloc(num * sizeof(cow));
+
+	for (int i = 0; i < num; i++)
+	{
+		*(arr_cow2 + i) = *(arr_cow + i);
+	}
+	//cow1 = {};
+	delete [] arr_cow;
+	//num_cow2 = num_cow + 10;
+	//arr_cow = (cow*)malloc((num + 1) * sizeof(cow));
+	arr_cow = new cow[num + 1];
+	for (int i = 0; i < num; i++)
+	{
+		*(arr_cow + i) = *(arr_cow2 + i);
+	}
+	//cow2 = {};
+	delete [] arr_cow2;
 
 }
 
