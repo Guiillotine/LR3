@@ -1,4 +1,5 @@
-﻿#define _CRT_SECURE_NO_WARNINGS
+﻿#pragma once
+#define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <stdio.h>
 #include <locale.h>
@@ -7,6 +8,7 @@
 #include <ctype.h>
 #include <stdlib.h>
 #include <windows.h>
+#include "food.h"
 using namespace std;
 
 class cow
@@ -171,68 +173,15 @@ void list_cow::print_list()
 
 void list_cow::arr_inc()
 {
-	/*cow* arr_cow2;//Вспомогательный динамический массив типа cow
-	arr_cow2 = (cow*)malloc((num) * sizeof(cow));
-	//cow* arr_cow2 = new cow[num - 1]; //Вспомогательный динамический массив типа cow
-	for (int i = 0; i < (num - 1); i++)
-	{
-		//(arr_cow + 0)->print_cow();
-		*(arr_cow2 + i) = *(arr_cow + i);
-	}
-		//delete [num - 1] arr_cow;
-	free(arr_cow);
-	arr_cow = (cow*)malloc((num + 1) * sizeof(cow));
-	cout << "\n КОЛВО ЯЧЕЕК " << num + 1;
-
-	//cow* arr_cow = new cow[num];
-	for (int i = 0; i < num - 1; i++)
-	{
-		*(arr_cow + i) = *(arr_cow2 + i);
-		//(arr_cow + i)->print_cow();
-	}
-
-		//delete [num - 1] arr_cow2;
-	free(arr_cow2);
-	cout << "\n ЭТО СРАЗУ ПОСЛЕ ФУНКЦИИ УВЕЛИЧЕНИЯ МАССИВА ЭЛЕМЕНТ 0\n";
-	(arr_cow + 0)->print_cow();*/
-
-
-
-
-	/*cow* arr_cow2;
-	arr_cow2 = (cow*)malloc(num * sizeof(cow));
-
-		for (int i = 0; i < num; i++)
-		{
-			*(arr_cow2 + i) = *(arr_cow + i);
-		}
-		//cow1 = {};
-		free(arr_cow);
-		//num_cow2 = num_cow + 10;
-		arr_cow = (cow*)malloc((num + 1) * sizeof(cow));
-		for (int i = 0; i < num; i++)
-		{
-			*(arr_cow + i) = *(arr_cow2 + i);
-		}
-		//cow2 = {};
-		free(arr_cow2);*/
-
 	cow* arr_cow2 = new cow[num];
 
-	for (int i = 0; i < num; i++)
-	{
-		*(arr_cow2 + i) = *(arr_cow + i);
-	}
+	for (int i = 0; i < num; i++) *(arr_cow2 + i) = *(arr_cow + i);
 	delete [] arr_cow;
 	arr_cow = new cow[num + 1];
-	for (int i = 0; i < num; i++)
-	{
-		*(arr_cow + i) = *(arr_cow2 + i);
-	}
+	for (int i = 0; i < num; i++) *(arr_cow + i) = *(arr_cow2 + i);
 	delete [] arr_cow2;
 
 }
-
 
 void list_cow::inc_age_sp()
 {
