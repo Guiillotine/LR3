@@ -11,21 +11,33 @@ int main()
 {
     SetConsoleCP(1251); //задаем кодировку для вывода символов на экран
     SetConsoleOutputCP(1251); //задаем кодировку для ввода символов с клавиатуры в консоль
-    cow cow1;
-    food food1;
-    list_cow sp_cow1;
+    cow cow1; list_cow sp_cow1;
+    food food1; list_food sp_food1;
 
-    food1.new_food();
-    food1.print_food();
 
-    //Добавление новой коровы в список(4 новых коровы)
-    for (int i = 0; i < 4; i++)
+    //КОРМА
+    //Добавление нового корма в список(3 новых корма)
+    for (int i = 0; i < 3; i++)
     {
-        cow1.new_cow();
+        food1.new_food();
+        sp_food1.add(food1);
+    }
+    sp_food1.print_list(); //Печать списка с кормами
+
+
+    //КОРОВЫ
+    //Добавление новой коровы в список(3 новых коровы)
+    for (int i = 0; i < 3; i++)
+    {
+        cow1.new_cow(sp_food1);
         sp_cow1.add(cow1);
     }
 
-    //sp_cow1.print_list(); 
-    //Увеличение возраста коровы на 1 год
-    sp_cow1.inc_age_sp();
+    //sp_cow1.print_list(); //Печать списка с коровами
+    sp_cow1.inc_age_sp(); //Увеличение возраста коровы на 1 год
+
+
+    
+
+    
 }

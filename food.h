@@ -18,6 +18,7 @@ public:
 	void new_food(); //Функция инициализации элементов данных
 	void get(food food1); //Функция возврата элементов данных
 	void print_food(); //Вывод на экран информации об одной корове
+	string food_name(); //Возвращает название корма
 
 private:
 	char name[50];
@@ -46,11 +47,10 @@ void food::new_food()
 	printf("\n Добавление нового корма\n ");
 	for (int i = 0; i < 23; i++) printf("-");
 	printf("\n Введите название корма: ");
-	cin >> name;
+	cin >> name;  name[strlen(name)] = '\0';
 
 	printf("\n Введите фирму-производителя корма: ");
 	cin >> company;
-
 	printf("\n Введите цену корма (в рублях): ");
 	cin >> price;
 	while (getchar() != '\n');
@@ -70,77 +70,79 @@ void food::print_food()
 	printf("\n НАЗВАНИЕ: %s\n ФИРМА: %s\n ЦЕНА(в рублях): %.3f\n\n", name, company, price);
 }
 
-/*
-class list_cow
+string food::food_name()
+{
+	return(name);
+}
+
+class list_food
 {
 public:
-	list_cow(); //  конструктор
-	~list_cow();//  деструктор
-	void add(cow cow1); //Функция инициализации элементов данных
-	cow get(cow cow1); //Функция возврата элементов данных
+	list_food(); //  конструктор
+	~list_food();//  деструктор
+	void add(food food1); //Функция инициализации элементов данных
+	food get(food food1); //Функция возврата элементов данных
 	void arr_inc(); //Функция увеличения размера массива
 	void print_list();
-	void inc_age_sp(); //Увеличение возраста коровы на 1 год
+	int num_sp(); //Возвращает количество кормов в списке
+	food one_food(int i);
 
 private:
 	int num = 0;
-	cow* arr_cow = new cow[1];
+	food* arr_food = new food[1];
 };
 
-list_cow::list_cow()
+list_food::list_food()
 {
 	num = 0;
 }
 
-list_cow::~list_cow()
+list_food::~list_food()
 {
 
 }
 
-void list_cow::add(cow cow1)
+void list_food::add(food food1)
 {
 	if (num > 0) this->arr_inc(); // увеличение размера динамического массива
-	*(arr_cow + num) = cow1;
-	num++; //Количество коров в списке
+	*(arr_food + num) = food1;
+	num++; //Количество кормов в списке
 }
 
-cow list_cow::get(cow cow1)
+food list_food::get(food food1)
 {
-	return (*(arr_cow + num - 1));
+	return (*(arr_food + num - 1));
 }
 
-void list_cow::print_list()
+void list_food::print_list()
 {
-	cow cow2;
+	food food2;
 	for (int i = 0; i < num; i++)
 	{
 		cout << "\n № " << i + 1;
-		cow2 = *(arr_cow + i);
-		cow2.print_cow();
+		food2 = *(arr_food + i);
+		food2.print_food();
 	}
 }
 
-void list_cow::arr_inc()
+void list_food::arr_inc()
 {
-	cow* arr_cow2 = new cow[num];
+	food* arr_food2 = new food[num];
 
-	for (int i = 0; i < num; i++) *(arr_cow2 + i) = *(arr_cow + i);
-	delete [] arr_cow;
-	arr_cow = new cow[num + 1];
-	for (int i = 0; i < num; i++) *(arr_cow + i) = *(arr_cow2 + i);
-	delete [] arr_cow2;
+	for (int i = 0; i < num; i++) *(arr_food2 + i) = *(arr_food + i);
+	delete [] arr_food;
+	arr_food = new food[num + 1];
+	for (int i = 0; i < num; i++) *(arr_food + i) = *(arr_food2 + i);
+	delete [] arr_food2;
 
 }
 
-void list_cow::inc_age_sp()
+int list_food::num_sp()
 {
-	int a;
-	system("cls");
-	this->print_list();
-	cout << "\n Увеличение возраста коровы на один год \n --------------------------------------\n";
-	cout << "\n Введите номер коровы в списке, возраст которой нужно увеличить: ";
-	cin >> a;
-	(arr_cow + a - 1)->inc_age();
-	cout << "\n Возраст коровы № " << a << " изменён:\n";
-	(arr_cow + a - 1)->print_cow();
-}*/
+	return(num);
+}
+
+food list_food::one_food(int i)
+{
+	return(*(arr_food + i));
+}
