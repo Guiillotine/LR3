@@ -125,7 +125,7 @@ public:
 	list_cow(); //  конструктор
 	~list_cow();//  деструктор
 	void add(cow cow1); //Функция инициализации элементов данных
-	cow get(cow cow1); //Функция возврата элементов данных
+	cow ret(cow cow1); //Функция возврата элементов данных
 	void arr_inc(); //Функция увеличения размера массива
 	void print_list();
 	void inc_age_sp(); //Увеличение возраста коровы на 1 год
@@ -153,7 +153,7 @@ void list_cow::add(cow cow1)
 	num++; //Количество коров в списке
 }
 
-cow list_cow::get(cow cow1)
+cow list_cow::ret(cow cow1)
 {
 	return (*(arr_cow + num - 1));
 }

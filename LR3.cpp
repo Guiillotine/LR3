@@ -5,6 +5,7 @@
 #include <conio.h>
 #include "cow.h"
 #include "food.h"
+#include "worker.h"
 using namespace std;
 
 int main()
@@ -13,7 +14,18 @@ int main()
     SetConsoleOutputCP(1251); //задаем кодировку для ввода символов с клавиатуры в консоль
     cow cow1; list_cow sp_cow1;
     food food1; list_food sp_food1;
+    worker worker1; list_worker sp_worker1;
 
+
+    //СОТРУДНИКИ
+    //Добавление нового сотрудника в список(3 новых сотрудника)
+    for (int i = 0; i < 3; i++)
+    {
+        worker1.new_worker();
+        sp_worker1.add(worker1);
+    }
+    sp_worker1.change_stat();
+    sp_worker1.print_list(); //Печать списка с сотрудниками
 
     //КОРМА
     //Добавление нового корма в список(3 новых корма)

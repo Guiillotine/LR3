@@ -26,7 +26,6 @@ private:
 	double price;
 };
 
-
 food::food()
 {
 	strcpy(name,"");
@@ -44,7 +43,7 @@ void food::new_food()
 	SetConsoleCP(1251); //задаем кодировку для вывода символов на экран
 	SetConsoleOutputCP(1251); //задаем кодировку для ввода символов с клавиатуры в консоль
 	//system("cls");
-	printf("\n Добавление нового корма\n ");
+	printf("\n\n Добавление нового корма\n ");
 	for (int i = 0; i < 23; i++) printf("-");
 	printf("\n Введите название корма: ");
 	cin >> name;  name[strlen(name)] = '\0';
@@ -81,7 +80,7 @@ public:
 	list_food(); //  конструктор
 	~list_food();//  деструктор
 	void add(food food1); //Функция инициализации элементов данных
-	food get(food food1); //Функция возврата элементов данных
+	food ret(food food1); //Функция возврата элементов данных
 	void arr_inc(); //Функция увеличения размера массива
 	void print_list();
 	int num_sp(); //Возвращает количество кормов в списке
@@ -109,7 +108,7 @@ void list_food::add(food food1)
 	num++; //Количество кормов в списке
 }
 
-food list_food::get(food food1)
+food list_food::ret(food food1)
 {
 	return (*(arr_food + num - 1));
 }
