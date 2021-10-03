@@ -13,9 +13,9 @@ using namespace std;
 
 worker::worker()
 {
-	strcpy(fio,"");
-	strcpy(prof, "");
-	strcpy(stat, "");
+	strcpy(fio,"Отсутствует");
+	strcpy(prof, "Отсутствует");
+	strcpy(stat, "В норме");
 	year = 0;
 	pay = 0;
 }
@@ -48,14 +48,6 @@ void worker::set_new_worker()
 	while (getchar() != '\n');
 }
 
-void worker::get(worker worker1)
-{
-	strcpy(worker1.fio, fio);
-	strcpy(worker1.prof, prof);
-	strcpy(stat, "В норме");
-	worker1.year = year;
-	worker1.pay = pay;
-}
 
 void worker::get_print_worker()
 {
@@ -101,10 +93,6 @@ void list_worker::add(worker worker1)
 	num++; //Количество сотрудников в списке
 }
 
-/*worker list_worker::ret(int numb)
-{
-	return (*(arr_worker + numb - 1));
-}*/
 
 void list_worker::get_print_list()
 {
@@ -119,14 +107,10 @@ void list_worker::get_print_list()
 
 void list_worker::arr_inc()
 {
-	worker* arr_worker2 = new worker[num];
-
+	worker* arr_worker2 = new worker[num+1];
 	for (int i = 0; i < num; i++) *(arr_worker2 + i) = *(arr_worker + i);
 	delete [] arr_worker;
-	arr_worker = new worker[num + 1];
-	for (int i = 0; i < num; i++) *(arr_worker + i) = *(arr_worker2 + i);
-	delete [] arr_worker2;
-
+	arr_worker = arr_worker2;
 }
 
 int list_worker::num_sp()

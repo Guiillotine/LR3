@@ -103,13 +103,10 @@ void list_food::get_print_list()
 
 void list_food::arr_inc()
 {
-	food* arr_food2 = new food[num];
-
+	food* arr_food2 = new food[num+1];
 	for (int i = 0; i < num; i++) *(arr_food2 + i) = *(arr_food + i);
 	delete [] arr_food;
-	arr_food = new food[num + 1];
-	for (int i = 0; i < num; i++) *(arr_food + i) = *(arr_food2 + i);
-	delete [] arr_food2;
+	arr_food = arr_food2;
 
 }
 

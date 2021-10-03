@@ -13,8 +13,8 @@ using namespace std;
 
 warehouse::warehouse()
 {
-	S = 0;
-	kol_bags = 0;
+	S = 500;
+	kol_bags = 1000;
 	price = 0;
 	exp = 0;
 }
@@ -99,13 +99,10 @@ void list_warehouse::get_print_list()
 
 void list_warehouse::arr_inc()
 {
-	warehouse* arr_warehouse2 = new warehouse[num];
-
+	warehouse* arr_warehouse2 = new warehouse[num+1];
 	for (int i = 0; i < num; i++) *(arr_warehouse2 + i) = *(arr_warehouse + i);
 	delete[] arr_warehouse;
-	arr_warehouse = new warehouse[num + 1];
-	for (int i = 0; i < num; i++) *(arr_warehouse + i) = *(arr_warehouse2 + i);
-	delete[] arr_warehouse2;
+	arr_warehouse = arr_warehouse2;
 }
 
 int list_warehouse::num_sp()

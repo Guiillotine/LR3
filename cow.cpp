@@ -138,14 +138,10 @@ void list_cow::get_print_list()
 
 void list_cow::arr_inc()
 {
-	cow* arr_cow2 = new cow[num];
-
+	cow* arr_cow2 = new cow[num+1];
 	for (int i = 0; i < num; i++) *(arr_cow2 + i) = *(arr_cow + i);
 	delete [] arr_cow;
-	arr_cow = new cow[num + 1];
-	for (int i = 0; i < num; i++) *(arr_cow + i) = *(arr_cow2 + i);
-	delete [] arr_cow2;
-
+	arr_cow = arr_cow2;
 }
 
 void list_cow::inc_age_sp()
