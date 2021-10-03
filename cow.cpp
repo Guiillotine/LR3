@@ -16,7 +16,6 @@ cow::cow()
 {
 	strcpy(name,"");
 	strcpy(breed, "");
-	strcpy(food, "");
 	age = 0;
 	weight = 0;
 	nadoi = 0;
@@ -29,7 +28,7 @@ cow::~cow()
 
 //void cow::set(int id0, char name0[], char breed0[], char food0[], int age0, int weight0, int nadoi0)
 //void cow::set_new_cow(list_food sp_food1)
-void cow::set_new_cow()
+void cow::set_new_cow(list_food &sp_food1)
 {
 	SetConsoleCP(1251); //задаем кодировку для вывода символов на экран
 	SetConsoleOutputCP(1251); //задаем кодировку для ввода символов с клавиатуры в консоль
@@ -43,6 +42,21 @@ void cow::set_new_cow()
 
 	printf("\n Введите породу коровы: ");
 	gets_s(breed); //gets_s для ввода с пробелами
+
+	//food = sp_food1.one_food(0);
+
+	printf("\n Выберите корм для коровы: ");
+	for (int i = 0; i < sp_food1.num_sp(); i++)
+		cout << "\n " << i + 1 << "->" << sp_food1.one_food(i).food_name();
+	printf("\n ");
+	std::cin >> a;
+	while (getchar() != '\n');
+
+	for (int i = 0; i < sp_food1.num_sp(); i++)
+		if (a == (i + 1))
+		{
+			food = sp_food1.one_food(i);
+		}
 
 
 	/*printf("\n Выберите корм для коровы: ");
@@ -59,7 +73,7 @@ void cow::set_new_cow()
 				food[k] = (sp_food1.one_food(a - 1).food_name())[k];
 			food[k] = '\0';
 		}*/
-	strcpy(food, "Овес");
+	//strcpy(food, "Овес");
 
 	printf("\n Введите возраст коровы (лет): ");
 	cin >> age;
@@ -79,7 +93,9 @@ void cow::get_print_cow()
 {
 	SetConsoleCP(1251); //задаем кодировку для вывода символов на экран
 	SetConsoleOutputCP(1251); //задаем кодировку для ввода символов с клавиатуры в консоль
-	cout << "\n ИМЯ: " << name << "\n ПОРОДА: " << breed << "\n КОРМ: " << food << "\n ВОЗРАСТ(лет): " << age << "\n ВЕС(кг): " << weight << "\n НАДОЙ(л/день): " << nadoi << endl;
+	cout << "\n ИМЯ: " << name << "\n ПОРОДА: " << breed << "\n КОРМ: " << food.food_name() << "\n ВОЗРАСТ(лет): " << age << "\n ВЕС(кг): " << weight << "\n НАДОЙ(л/день): " << nadoi << endl;
+	//food.food_name();
+	//cout << "\n ВОЗРАСТ(лет): " << age << "\n ВЕС(кг): " << weight << "\n НАДОЙ(л/день): " << nadoi << endl;
 }
 
 

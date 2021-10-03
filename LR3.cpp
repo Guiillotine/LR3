@@ -23,8 +23,8 @@ int main()
     warehouse warehouse1; list_warehouse sp_warehouse1;
 
     //КОРМА
-    //Добавление нового корма в список(3 новых корма)
-    for (int i = 0; i < 3; i++)
+    //Добавление нового корма в список(2 новых корма)
+    for (int i = 0; i < 2; i++)
     {
         food1.set_new_food();
         sp_food1.add(food1);
@@ -37,10 +37,12 @@ int main()
     for (int i = 0; i < 3; i++)
     {
        // cow1.set_new_cow(sp_food1);
-       cow1.set_new_cow();
-        //sp_cow1.add(cow1);
+       cow1.set_new_cow(sp_food1);
+       sp_cow1.add(cow1);
     }
     sp_food1.get_print_list();
+    sp_cow1.get_print_list();
+
 
 
     //sp_cow1.get_print_list(); //Печать списка с коровами
