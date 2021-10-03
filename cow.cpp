@@ -14,11 +14,11 @@ using namespace std;
 
 cow::cow()
 {
-	strcpy(name,"");
-	strcpy(breed, "");
-	age = 0;
-	weight = 0;
-	nadoi = 0;
+	strcpy(name,"Бурёнка");
+	strcpy(breed, "Черно-пестрая");
+	age = 4;
+	weight = 400;
+	nadoi = 15;
 }
 
 cow::~cow()
@@ -26,8 +26,15 @@ cow::~cow()
 
 }
 
-//void cow::set(int id0, char name0[], char breed0[], char food0[], int age0, int weight0, int nadoi0)
-//void cow::set_new_cow(list_food sp_food1)
+void cow::set(char name[], char breed[], int age, double weight, int nadoi)
+{
+	if(strcmp(name, " ")) strcpy(this->name, name);
+	if (strcmp(breed, " ")) strcpy(this->breed, breed);
+	if (age) this->age = age;
+	if (weight) this->weight = weight;
+	if (nadoi) this->nadoi = nadoi;
+}
+
 void cow::set_new_cow(list_food &sp_food1)
 {
 	SetConsoleCP(1251); //задаем кодировку для вывода символов на экран
@@ -43,8 +50,6 @@ void cow::set_new_cow(list_food &sp_food1)
 	printf("\n Введите породу коровы: ");
 	gets_s(breed); //gets_s для ввода с пробелами
 
-	//food = sp_food1.one_food(0);
-
 	printf("\n Выберите корм для коровы: ");
 	for (int i = 0; i < sp_food1.num_sp(); i++)
 		cout << "\n " << i + 1 << "->" << sp_food1.one_food(i).food_name();
@@ -57,23 +62,6 @@ void cow::set_new_cow(list_food &sp_food1)
 		{
 			food = sp_food1.one_food(i);
 		}
-
-
-	/*printf("\n Выберите корм для коровы: ");
-	for (int i = 0; i < sp_food1.num_sp(); i++)
-		cout << "\n " << i + 1 << "->" << sp_food1.one_food(i).food_name();
-	printf("\n ");
-	std::cin >> a; b = sp_food1.one_food(a - 1).food_name().size();
-	while (getchar() != '\n');
-	int k = 0;
-	for (int i = 0; i < sp_food1.num_sp(); i++)
-		if (a == (i + 1))
-		{
-			for (k = 0; (sp_food1.one_food(a - 1).food_name())[k] != '\0'; k++)
-				food[k] = (sp_food1.one_food(a - 1).food_name())[k];
-			food[k] = '\0';
-		}*/
-	//strcpy(food, "Овес");
 
 	printf("\n Введите возраст коровы (лет): ");
 	cin >> age;
@@ -104,6 +92,19 @@ void cow::inc_age()
 	age++;
 }
 
+void cow::print_udder()
+{
+	printf("\n Параметры вымени для этой коровы:\n\n ДЛИНА: %.2f М\n ШИРИНА: %.2f М\n ОБХВАТ: %.2f М\n", udder.length, udder.width, udder.girth);
+}
+
+void cow::set_udder(double length, double width, double girth)
+{
+	udder.length = length;
+	udder.width = width;
+	udder.girth = girth;
+}
+
+
 
 ////////////////////////////////////////////////////////////////////////////////
 list_cow::list_cow()
@@ -123,10 +124,6 @@ void list_cow::add(cow cow1)
 	num++; //Количество коров в списке
 }
 
-/*cow list_cow::ret(cow cow1)
-{
-	return (*(arr_cow + num - 1));
-}*/
 
 void list_cow::get_print_list()
 {
@@ -169,3 +166,5 @@ int list_cow::num_sp()
 {
 	return(num);
 }
+
+

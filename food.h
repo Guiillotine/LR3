@@ -15,6 +15,7 @@ class food
 public:
 	food(); //  конструктор
 	~food();//  деструктор
+	void set(char name[], char company[], double price); //Вводим "0" (" " для char), чтобы пропустить параметр
 	void set_new_food(); //Функция инициализации элементов данных
 	void get(food food1); //Функция возврата элементов данных
 	void get_print_food(); //Вывод на экран информации об одной корове
@@ -22,7 +23,7 @@ public:
 
 private:
 	char name[50];
-	char company[70]; //порода
+	char company[70]; //фирма
 	double price;
 };
 

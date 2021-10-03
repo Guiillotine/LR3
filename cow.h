@@ -16,13 +16,32 @@ class cow
 public:
 	cow(); //  конструктор
 	~cow();//  деструктор
-	//void set_new_cow(list_food sp_food1); //Функция инициализации элементов данных
-	void set_new_cow(list_food &sp_food1);
+	void set(char name[], char breed[], int age, double weight, int nadoi);
+	void set_new_cow(list_food &sp_food1);//Функция инициализации элементов данных
 	void inc_age(); //Увеличить возраст
 	void get_print_cow(); //Вывод на экран информации об одной корове
+	void print_udder(); //Печать параметров вымени для коровы
+	void set_udder(double length, double width, double girth); //Ввод параметров вымени длина, ширина, обхват 
 
 private:
-	//int id;
+	class Udder
+	{
+	public:
+		Udder()
+		{
+			this->length = 0.39;
+			this->width = 0;
+			this->girth = 0;
+		}
+		~Udder()
+		{
+		}
+		double length;//длина
+		double width; //ширина
+		double girth; //обхват
+	//private:
+	};
+	Udder udder;
 	char name[50];
 	char breed[100]; //порода
 	food food;

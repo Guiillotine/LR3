@@ -13,14 +13,21 @@ using namespace std;
 
 food::food()
 {
-	strcpy(name,"");
-	strcpy(company, "");
-	price = 0;
+	strcpy(name,"Сено");
+	strcpy(company, "КормАн");
+	price = 500;
 }
 
 food::~food()
 {
 
+}
+
+void food::set(char name[], char company[], double price) //Если введённый параметр равен нулю (пробелу для char) - пропустить его
+{
+	if (strcmp(name, " ")) strcpy(this->name, name);
+	if (strcmp(company, " ")) strcpy(this->company, company);
+	if (price) this->price = price;
 }
 
 void food::set_new_food()
