@@ -21,8 +21,9 @@ public:
 	void inc_age(); //Увеличить возраст
 	void get_print_cow(); //Вывод на экран информации об одной корове
 	void print_udder(); //Печать параметров вымени для коровы
-	void set_udder(double length, double width, double girth); //Ввод параметров вымени длина, ширина, обхват 
-
+	void set_udder(double length, double width, double girth, double depth); //Ввод параметров вымени длина, ширина, обхват, глубина 
+	void set_udder(); //Заполнение полей из консоли
+	double volume_udder(); //Возвращает значение объёма вымени
 private:
 	class Udder
 	{
@@ -30,8 +31,9 @@ private:
 		Udder()
 		{
 			this->length = 0.39;
-			this->width = 0;
-			this->girth = 0;
+			this->width = 0.43;
+			this->girth = 0.47;
+			this->depth = 0.56;
 		}
 		~Udder()
 		{
@@ -39,7 +41,7 @@ private:
 		double length;//длина
 		double width; //ширина
 		double girth; //обхват
-	//private:
+		double depth; //глубина
 	};
 	Udder udder;
 	char name[50];

@@ -47,13 +47,6 @@ void food::set_new_food()
 	while (getchar() != '\n');
 }
 
-void food::get(food food1)
-{
-	strcpy(food1.name, name);
-	strcpy(food1.company, company);
-	food1.price = price;
-}
-
 void food::get_print_food()
 {
 	SetConsoleCP(1251); //задаем кодировку для вывода символов на экран
@@ -84,11 +77,6 @@ void list_food::add(food food1)
 	*(arr_food + num) = food1;
 	num++; //Количество кормов в списке
 }
-
-/*food list_food::ret(food food1)
-{
-	return (*(arr_food + num - 1));
-}*/
 
 void list_food::get_print_list()
 {

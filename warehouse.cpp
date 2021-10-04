@@ -46,21 +46,12 @@ void warehouse::set_new_warehouse()
 	while (getchar() != '\n');
 }
 
-void warehouse::get(warehouse warehouse1)
-{
-	warehouse1.S = S;
-	warehouse1.kol_bags = kol_bags;
-	warehouse1.price = price;
-	warehouse1.exp = exp;
-}
-
 void warehouse::get_print_warehouse()
 {
 	SetConsoleCP(1251); //задаем кодировку для вывода символов на экран
 	SetConsoleOutputCP(1251); //задаем кодировку для ввода символов с клавиатуры в консоль
 	printf("\n ПЛОЩАДЬ СКЛАДА(м^2): %d\n ВМЕСТИМОСТЬ СКЛАДА(количество мешков): %d\n СТОИМОСТЬ склада(в рублях): %.3f\n ЕЖЕМЕСЯЧНЫЕ ЗАТРАТЫ НА ОБСЛУЖИВАНИЕ(в рублях): %.3f\n\n", S, kol_bags, price, exp);
 }
-
 
 /////////////////////////////////////////////////////////////////////////////////////
 
@@ -80,11 +71,6 @@ void list_warehouse::add(warehouse warehouse1)
 	*(arr_warehouse + num) = warehouse1;
 	num++; //Количество складов в списке
 }
-
-/*warehouse list_warehouse::ret(int numb)
-{
-	return (*(arr_warehouse + numb - 1));
-}*/
 
 void list_warehouse::get_print_list()
 {

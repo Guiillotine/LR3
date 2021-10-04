@@ -31,23 +31,19 @@ int main()
     }
     sp_food1.get_print_list(); //Печать списка с кормами
 
-
-
     //КОРОВЫ
     //Добавление новой коровы в список(3 новых коровы)
     for (int i = 0; i < 3; i++)
     {
          double x; x = i;
          cow1.set_new_cow(sp_food1);
-         cow1.set_udder((40+x)/100, (43+x)/100, (42-x)/100);
+         if (i < 2) cow1.set_udder((40 + x) / 100, (43 + x) / 100, (42 - x) / 100, (x + 50) / 100); else cow1.set_udder();
          cow1.print_udder();
+         printf("\n ОБЪЁМ ВЫМЕНИ: %.2lf", cow1.volume_udder());
          sp_cow1.add(cow1);
     }
-    cow1.print_udder();
-    //sp_food1.get_print_list();
-    //sp_cow1.get_print_list();
 
-
+    cout << "\n Пауза. Нажмите любую клавишу, чтобы продолжить\n"; _getch();
 
     //sp_cow1.get_print_list(); //Печать списка с коровами
     sp_cow1.inc_age_sp(); //Увеличение возраста коровы на 1 год
@@ -72,4 +68,5 @@ int main()
     sp_warehouse1.get_print_list(); //Печать списка со складами
     sp_warehouse1.sell(); //Продажа склада
     sp_warehouse1.get_print_list();
+    _getch();
 }
