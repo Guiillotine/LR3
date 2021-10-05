@@ -16,8 +16,7 @@ public:
 	warehouse(); //  конструктор
 	~warehouse();//  деструктор
 	void set_new_warehouse(); //Функция инициализации элементов данных
-	void get_print_warehouse(); //Вывод на экран информации об одной корове
-	void get(warehouse warehouse1);
+	void get_print_warehouse(); //Вывод на экран информации об одном коровнике
 
 private:
 	int S;//Площадь
@@ -33,7 +32,6 @@ public:
 	list_warehouse(); //  конструктор
 	~list_warehouse();//  деструктор
 	void add(warehouse warehouse1); //Функция инициализации элементов данных
-	//warehouse ret(int numb); //Функция возврата строки
 	void arr_inc(); //Функция увеличения размера массива
 	void get_print_list();
 	int num_sp(); //Возвращает количество складов в списке

@@ -20,6 +20,7 @@ public:
 	void set_new_cow(list_food &sp_food1);//Функция инициализации элементов данных
 	void inc_age(); //Увеличить возраст
 	void get_print_cow(); //Вывод на экран информации об одной корове
+	void print_inf_food();
 	void print_udder(); //Печать параметров вымени для коровы
 	void set_udder(double length, double width, double girth, double depth); //Ввод параметров вымени длина, ширина, обхват, глубина 
 	void set_udder(); //Заполнение полей из консоли
@@ -42,6 +43,10 @@ private:
 		double width; //ширина
 		double girth; //обхват
 		double depth; //глубина
+		void set_udder(double length, double width, double girth, double depth); //Ввод параметров вымени длина, ширина, обхват, глубина 
+		void set_udder(); //Заполнение полей из консоли
+		double volume_udder(); //Возвращает значение объёма вымени
+		void print_udder(); //Печать параметров вымени для коровы
 	};
 	Udder udder;
 	char name[50];
@@ -60,7 +65,6 @@ public:
 	list_cow(); //  конструктор
 	~list_cow();//  деструктор
 	void add(cow cow1); //Функция инициализации элементов данных
-	//cow ret(cow cow1); //Функция возврата элементов данных
 	void arr_inc(); //Функция увеличения размера массива
 	void get_print_list();
 	void inc_age_sp(); //Увеличение возраста коровы на 1 год

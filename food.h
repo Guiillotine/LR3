@@ -17,7 +17,6 @@ public:
 	~food();//  деструктор
 	void set(char name[], char company[], double price); //Вводим "0" (" " для char), чтобы пропустить параметр
 	void set_new_food(); //Функция инициализации элементов данных
-	void get(food food1); //Функция возврата элементов данных
 	void get_print_food(); //Вывод на экран информации об одной корове
 	string food_name(); //Возвращает название корма
 
@@ -34,7 +33,6 @@ public:
 	list_food(); //  конструктор
 	~list_food();//  деструктор
 	void add(food food1); //Функция инициализации элементов данных
-	//food ret(food food1); //Функция возврата элементов данных
 	void arr_inc(); //Функция увеличения размера массива
 	void get_print_list();
 	int num_sp(); //Возвращает количество кормов в списке

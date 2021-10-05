@@ -21,7 +21,6 @@ int main()
     food food1; list_food sp_food1;
     worker worker1; list_worker sp_worker1;
     warehouse warehouse1; list_warehouse sp_warehouse1;
-
     //КОРМА
     //Добавление нового корма в список(3 новых корма)
     for (int i = 0; i < 3; i++)
@@ -40,12 +39,12 @@ int main()
          if (i < 2) cow1.set_udder((40 + x) / 100, (43 + x) / 100, (42 - x) / 100, (x + 50) / 100); else cow1.set_udder();
          cow1.print_udder();
          printf("\n ОБЪЁМ ВЫМЕНИ: %.2lf", cow1.volume_udder());
+         cow1.print_inf_food();
          sp_cow1.add(cow1);
     }
 
     cout << "\n Пауза. Нажмите любую клавишу, чтобы продолжить\n"; _getch();
-
-    //sp_cow1.get_print_list(); //Печать списка с коровами
+    system("cls");
     sp_cow1.inc_age_sp(); //Увеличение возраста коровы на 1 год
     
     //СОТРУДНИКИ

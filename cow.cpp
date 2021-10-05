@@ -81,8 +81,12 @@ void cow::get_print_cow()
 	SetConsoleCP(1251); //задаем кодировку для вывода символов на экран
 	SetConsoleOutputCP(1251); //задаем кодировку для ввода символов с клавиатуры в консоль
 	cout << "\n ИМЯ: " << name << "\n ПОРОДА: " << breed << "\n КОРМ: " << food.food_name() << "\n ВОЗРАСТ(лет): " << age << "\n ВЕС(кг): " << weight << "\n НАДОЙ(л/день): " << nadoi << endl;
-	//food.food_name();
-	//cout << "\n ВОЗРАСТ(лет): " << age << "\n ВЕС(кг): " << weight << "\n НАДОЙ(л/день): " << nadoi << endl;
+}
+
+void cow::print_inf_food()
+{
+	cout << "\n Информация о корме для данной коровы:\n";
+	food.get_print_food();
 }
 
 void cow::inc_age()
@@ -90,32 +94,43 @@ void cow::inc_age()
 	age++;
 }
 
-void cow::print_udder()
+void cow::print_udder() { udder.print_udder(); }
+
+void cow::Udder::print_udder() //Печать параметров вымени для коровы
 {
-	printf("\n Параметры вымени для этой коровы:\n\n ДЛИНА: %.2f М\n ШИРИНА: %.2f М\n ОБХВАТ: %.2f М\n ГЛУБИНА: %.2f M\n", udder.length, udder.width, udder.girth, udder.depth);
+	printf("\n Параметры вымени для этой коровы:\n\n ДЛИНА: %.2f М\n ШИРИНА: %.2f М\n ОБХВАТ: %.2f М\n ГЛУБИНА: %.2f M\n", length, width, girth, depth);
 }
 
-void cow::set_udder(double length, double width, double girth, double depth)
+void cow::set_udder(double length, double width, double girth, double depth) { udder.set_udder(length, width, girth, depth); }
+
+void cow::Udder::set_udder(double length, double width, double girth, double depth)
 {
-	udder.length = length;
-	udder.width = width;
-	udder.girth = girth;
-	udder.depth = depth;
+	this->length = length;
+	this->width = width;
+	this->girth = girth;
+	this->depth = depth;
 }
 
-void  cow::set_udder()
+void  cow::set_udder() { udder.set_udder(); }
+
+void cow::Udder::set_udder() //Заполнение полей из консоли
 {
-	cout << "\n Заполнение параметров вымени коровы\n";
-	cout << "\n Введите длину вымени (м): "; cin >> udder.length;
-	cout << "\n Введите ширину вымени (м): "; cin >> udder.width;
-	cout << "\n Введите обхват вымени (м): "; cin >> udder.girth;
-	cout << "\n Введите глубину вымени (м): "; cin >> udder.depth;
+	cout << "\n Заполнение параметров вымени коровы\n "; for (int i = 0; i < 35; i++) cout << "-";
+	cout << "\n\n Введите длину вымени (м): "; cin >> length;
+	cout << "\n Введите ширину вымени (м): "; cin >> width;
+	cout << "\n Введите обхват вымени (м): "; cin >> girth;
+	cout << "\n Введите глубину вымени (м): "; cin >> depth;
 	cout << endl;
 }
 
 double cow::volume_udder()
 {
-	return(udder.length* udder.width* udder.depth);
+	return(udder.volume_udder());
+}
+
+double cow::Udder::volume_udder()
+{
+	return(length * width * depth);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -159,7 +174,7 @@ void list_cow::arr_inc()
 void list_cow::inc_age_sp()
 {
 	int a;
-	system("cls");
+	//system("cls");
 	this->get_print_list();
 	cout << "\n Увеличение возраста коровы на один год \n --------------------------------------\n";
 	cout << "\n Введите номер коровы в списке, возраст которой нужно увеличить: ";
