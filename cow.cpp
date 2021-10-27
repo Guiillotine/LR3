@@ -11,7 +11,7 @@
 #include "food.h"
 #include "cow.h"
 using namespace std;
-class list_food;
+//class list_food;
 
 
 
@@ -53,13 +53,13 @@ void cow::set(list_food& sp_food1)
 		gets_s(breed);
 
 		printf("\n Выберите корм для коровы: ");
-		for (int i = 0; i < sp_food1.num; i++)
+		for (int i = 0; i < sp_food1.num_sp(); i++)
 			cout << "\n " << i + 1 << "->" << sp_food1.one_food(i).food_name();
 		printf("\n ");
 		std::cin >> a;
 		while (getchar() != '\n');
 
-		for (int i = 0; i < sp_food1.num; i++)
+		for (int i = 0; i < sp_food1.num_sp(); i++)
 			if (a == (i + 1))
 			{
 				food = sp_food1.one_food(i);
@@ -193,18 +193,3 @@ int list_cow::num_sp()
 }
 
 
-class list_food
-{
-public:
-	list_food(); //  конструктор
-	~list_food();//  деструктор
-	void add(food food1); //Функция инициализации элементов данных
-	void arr_inc(); //Функция увеличения размера массива
-	void get_print_list();
-	food one_food(int i);
-
-private:
-	int num = 0;
-	food* arr_food = new food[1];
-	friend void cow::set(list_food& sp_food1);
-};

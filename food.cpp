@@ -103,3 +103,8 @@ food list_food::one_food(int i)
 {
 	return(*(arr_food + i));
 }
+
+int list_food::num_sp()
+{
+	return(num);
+}

@@ -26,3 +26,19 @@ private:
 	double price;
 };
 
+class list_food
+{
+public:
+	list_food(); //  конструктор
+	~list_food();//  деструктор
+	void add(food food1); //Функция инициализации элементов данных
+	void arr_inc(); //Функция увеличения размера массива
+	void get_print_list();
+	food one_food(int i);
+	int num_sp();
+
+private:
+	int num = 0;
+	food* arr_food = new food[1];
+	//friend void cow::set(list_food& sp_food1);
+};
