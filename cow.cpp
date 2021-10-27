@@ -11,6 +11,9 @@
 #include "food.h"
 #include "cow.h"
 using namespace std;
+class list_food;
+
+
 
 cow::cow()
 {
@@ -35,46 +38,46 @@ void cow::set(char name[], char breed[], int age, double weight, int nadoi)
 	if (nadoi) this->nadoi = nadoi;
 }
 
-void cow::set_new_cow(list_food &sp_food1)
+void cow::set(list_food& sp_food1)
 {
-	SetConsoleCP(1251); //задаем кодировку для вывода символов на экран
-	SetConsoleOutputCP(1251); //задаем кодировку для ввода символов с клавиатуры в консоль
-	int a;
-	//system("cls");
-	printf("\n Добавление новой коровы\n ");
-	for (int i = 0; i < 23; i++) printf("-");
+		SetConsoleCP(1251); //задаем кодировку для вывода символов на экран
+		SetConsoleOutputCP(1251); //задаем кодировку для ввода символов с клавиатуры в консоль
+		int a;
+		printf("\n Добавление новой коровы\n ");
+		for (int i = 0; i < 23; i++) printf("-");
 
-	printf("\n\n Введите кличку коровы: ");
-	gets_s(name);
+		printf("\n\n Введите кличку коровы: ");
+		gets_s(name);
 
-	printf("\n Введите породу коровы: ");
-	gets_s(breed); //gets_s для ввода с пробелами
+		printf("\n Введите породу коровы: ");
+		gets_s(breed);
 
-	printf("\n Выберите корм для коровы: ");
-	for (int i = 0; i < sp_food1.num_sp(); i++)
-		cout << "\n " << i + 1 << "->" << sp_food1.one_food(i).food_name();
-	printf("\n ");
-	std::cin >> a;
-	while (getchar() != '\n');
+		printf("\n Выберите корм для коровы: ");
+		for (int i = 0; i < sp_food1.num; i++)
+			cout << "\n " << i + 1 << "->" << sp_food1.one_food(i).food_name();
+		printf("\n ");
+		std::cin >> a;
+		while (getchar() != '\n');
 
-	for (int i = 0; i < sp_food1.num_sp(); i++)
-		if (a == (i + 1))
-		{
-			food = sp_food1.one_food(i);
-		}
+		for (int i = 0; i < sp_food1.num; i++)
+			if (a == (i + 1))
+			{
+				food = sp_food1.one_food(i);
+			}
 
-	printf("\n Введите возраст коровы (лет): ");
-	cin >> age;
+		printf("\n Введите возраст коровы (лет): ");
+		cin >> age;
 
-	printf("\n Введите вес коровы (кг): ");
-	cin >> weight;
+		printf("\n Введите вес коровы (кг): ");
+		cin >> weight;
 
-	printf("\n Введите надой коровы (л/сут): ");
-	cin >> nadoi;
+		printf("\n Введите надой коровы (л/сут): ");
+		cin >> nadoi;
 
-	while (getchar() != '\n');
+		while (getchar() != '\n');
 
 }
+
 
 void cow::get_print_cow()
 {
@@ -148,7 +151,7 @@ void list_cow::add(cow cow1)
 {
 	if (num > 0) this->arr_inc(); // увеличение размера динамического массива
 	*(arr_cow + num) = cow1;
-	num++; //Количество коров в списке
+	num++;
 }
 
 
@@ -174,7 +177,6 @@ void list_cow::arr_inc()
 void list_cow::inc_age_sp()
 {
 	int a;
-	//system("cls");
 	this->get_print_list();
 	cout << "\n Увеличение возраста коровы на один год \n --------------------------------------\n";
 	cout << "\n Введите номер коровы в списке, возраст которой нужно увеличить: ";
@@ -191,3 +193,18 @@ int list_cow::num_sp()
 }
 
 
+class list_food
+{
+public:
+	list_food(); //  конструктор
+	~list_food();//  деструктор
+	void add(food food1); //Функция инициализации элементов данных
+	void arr_inc(); //Функция увеличения размера массива
+	void get_print_list();
+	food one_food(int i);
+
+private:
+	int num = 0;
+	food* arr_food = new food[1];
+	friend void cow::set(list_food& sp_food1);
+};

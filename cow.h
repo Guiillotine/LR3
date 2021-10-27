@@ -11,13 +11,14 @@
 #include "food.h"
 using namespace std;
 
+
 class cow
 {
 public:
 	cow(); //  конструктор
 	~cow();//  деструктор
 	void set(char name[], char breed[], int age, double weight, int nadoi);
-	void set_new_cow(list_food &sp_food1);//Функция инициализации элементов данных
+	void set(list_food &sp_food1);//Функция инициализации элементов данных
 	void inc_age(); //Увеличить возраст
 	void get_print_cow(); //Вывод на экран информации об одной корове
 	void print_inf_food();

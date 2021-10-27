@@ -35,7 +35,7 @@ int main()
     for (int i = 0; i < 3; i++)
     {
          double x; x = i;
-         cow1.set_new_cow(sp_food1);
+         cow1.set(sp_food1);
          if (i < 2) cow1.set_udder((40 + x) / 100, (43 + x) / 100, (42 - x) / 100, (x + 50) / 100); else cow1.set_udder();
          cow1.print_udder();
          printf("\n ОБЪЁМ ВЫМЕНИ: %.2lf", cow1.volume_udder());

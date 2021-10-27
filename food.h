@@ -26,19 +26,3 @@ private:
 	double price;
 };
 
-/////////////////////////////////////////////////////////////////////////////////////////////
-class list_food
-{
-public:
-	list_food(); //  конструктор
-	~list_food();//  деструктор
-	void add(food food1); //Функция инициализации элементов данных
-	void arr_inc(); //Функция увеличения размера массива
-	void get_print_list();
-	int num_sp(); //Возвращает количество кормов в списке
-	food one_food(int i);
-
-private:
-	int num = 0;
-	food* arr_food = new food[1];
-};

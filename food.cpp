@@ -10,6 +10,7 @@
 #include <windows.h>
 #include "food.h"
 using namespace std;
+//class cow;
 
 food::food()
 {
@@ -96,11 +97,6 @@ void list_food::arr_inc()
 	delete [] arr_food;
 	arr_food = arr_food2;
 
-}
-
-int list_food::num_sp()
-{
-	return(num);
 }
 
 food list_food::one_food(int i)
