@@ -40,5 +40,4 @@ public:
 private:
 	int num = 0;
 	food* arr_food = new food[1];
-	//friend void cow::set(list_food& sp_food1);
 };

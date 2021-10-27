@@ -1,71 +1,24 @@
 ﻿#define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <stdio.h>
-#include <locale.h>
 #include <conio.h>
-#include "cow.h"
+#include <string>
+#include <windows.h>
 #include "cow.cpp"
-#include "food.h"
-#include "food.cpp"
-#include "worker.h"
-#include "worker.cpp"
-#include "warehouse.h"
-#include "warehouse.cpp"
+#include "Food.cpp"
+#include "List_cow.cpp"
 using namespace std;
+
 
 int main()
 {
-    SetConsoleCP(1251); //задаем кодировку для вывода символов на экран
-    SetConsoleOutputCP(1251); //задаем кодировку для ввода символов с клавиатуры в консоль
-    cow cow1; list_cow sp_cow1;
-    food food1; list_food sp_food1;
-    worker worker1; list_worker sp_worker1;
-    warehouse warehouse1; list_warehouse sp_warehouse1;
-    //КОРМА
-    //Добавление нового корма в список(3 новых корма)
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
+    List_cow list_cow; Food food;
+    food.Set("Сочень"); food.Set("Бублик");
+    food.Set();
     for (int i = 0; i < 3; i++)
-    {
-        food1.set_new_food();
-        sp_food1.add(food1);
-    }
-    sp_food1.get_print_list(); //Печать списка с кормами
+        list_cow.Add(food);
+    list_cow.Print_list();
 
-    //КОРОВЫ
-    //Добавление новой коровы в список(3 новых коровы)
-    for (int i = 0; i < 3; i++)
-    {
-         double x; x = i;
-         cow1.set(sp_food1);
-         if (i < 2) cow1.set_udder((40 + x) / 100, (43 + x) / 100, (42 - x) / 100, (x + 50) / 100); else cow1.set_udder();
-         cow1.print_udder();
-         printf("\n ОБЪЁМ ВЫМЕНИ: %.2lf", cow1.volume_udder());
-         cow1.print_inf_food();
-         sp_cow1.add(cow1);
-    }
-
-    cout << "\n Пауза. Нажмите любую клавишу, чтобы продолжить\n"; _getch();
-    system("cls");
-    sp_cow1.inc_age_sp(); //Увеличение возраста коровы на 1 год
-    
-    //СОТРУДНИКИ
-    //Добавление нового сотрудника в список(3 новых сотрудника)
-    for (int i = 0; i < 3; i++)
-    {
-        worker1.set_new_worker();
-        sp_worker1.add(worker1);
-    }
-    sp_worker1.change_stat();
-    sp_worker1.get_print_list(); //Печать списка с сотрудниками
-
-    //СКЛАДЫ
-    //Добавление нового склада в список(3 новых склада)
-    for (int i = 0; i < 3; i++)
-    {
-        warehouse1.set_new_warehouse();
-        sp_warehouse1.add(warehouse1);
-    }
-    sp_warehouse1.get_print_list(); //Печать списка со складами
-    sp_warehouse1.sell(); //Продажа склада
-    sp_warehouse1.get_print_list();
-    _getch();
 }
