@@ -14,9 +14,10 @@ int main()
 {
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
-    List_cow list_cow; Food food;
-    food.Set("Сочень"); food.Set("Бублик");
+    List_cow list_cow; Food food; Warehouse warehouse;
+    food.Set("Силос"); food.Set("Комбикорм"); food.Set("Солома"); food.Set("Свёкла");
     food.Set();
+    warehouse.AddKorm(food);
     for (int i = 0; i < 3; i++)
         list_cow.Add(food);
     list_cow.Print_list();

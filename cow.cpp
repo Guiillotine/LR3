@@ -20,8 +20,7 @@ public:
         if (weight != 0) this->weight = weight;
         if (nadoi != 0) this->nadoi = nadoi;
     }
-    void Set(Food food1) //Функция инициализации элементов данных
-    //void Set()
+    void Set(Food spisKorm) //Функция инициализации элементов данных
     {
         int a;
         cout << "\n Добавление новой коровы \n";
@@ -31,14 +30,14 @@ public:
         cout << "\n Введите породу коровы: "; cin >> breed;
 
         cout << "\n Выберите корм для коровы: ";
-        for (int i = 0; i < food1.Num_sp(); i++)
+        for (int i = 0; i < spisKorm.GetKolVo(); i++)
         {
-            cout << "\n " << (i + 1) << "->" << food1.Food_name(i);
+            cout << "\n " << (i + 1) << "->" << spisKorm.FoodName(i);
         }
         cout << "\n ";
         cin >> a;
-        for (int i = 0; i < food1.Num_sp(); i++)
-            if ((i + 1) == a) food = food1.Food_name(i);
+        for (int i = 0; i < spisKorm.GetKolVo(); i++)
+            if ((i + 1) == a) food = spisKorm.FoodName(i);
 
         cout << "\n\n Введите возраст коровы (лет): "; cin >> age;
 
@@ -58,9 +57,9 @@ public:
     {
         udder.set_udder(length, width, girth, depth);
     }
-    double Volume_udder_b(int n)
+    double VolumeUdderB(int numInList)
     {
-        return (udder.Volume_udder_a(n));
+        return (udder.VolumeUdderA(numInList));
     }
     void Print_udder()
     {
@@ -89,7 +88,7 @@ private:
             cout << "\n Введите обхват вымени (м): "; cin >> girth;
             cout << "\n Введите глубину вымени (м): "; cin >> depth;
         }
-        double Volume_udder_a(int n)
+        double VolumeUdderA(int numInList)
         {
             return (length * width * depth);
         }
