@@ -10,7 +10,10 @@ using namespace std;
 class Cowshed
 {
 public:
-	Cowshed(){}
+	Cowshed()
+	{
+		KolVoCowshed++;
+	}
 	~Cowshed(){}
 	void Set(int length, int width, int height)
 	{
@@ -24,17 +27,24 @@ public:
 	}
 	Cowshed& operator ++()
 	{
-		this->length++;
+		length++;
 		return *this;
 	}
 	Cowshed& operator ++(int value)
 	{
 		Cowshed temp = *this;
-		this->length++;
+		length++;
 		return temp;
 	}
+	static int GetKolVo()
+	{
+		return KolVoCowshed;
+	}
 private:
+	static int KolVoCowshed;
 	int length = 500;
 	int width = 500;
 	int height = 3;
 };
+
+int Cowshed::KolVoCowshed = 0;

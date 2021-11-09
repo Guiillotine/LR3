@@ -29,15 +29,6 @@ public:
         for (int i = 0; i < other.kolVo; i++) if (temp.kolVo < 100) { temp.KormSklad[i + this->kolVo] = other.KormSklad[i]; temp.kolVo++;}
         return(temp);
     }
-    Warehouse increm ()
-    {
-        Warehouse temp;
-        temp.kolVo = this->kolVo;
-        for (int i = 0; i < this->kolVo; i++) temp.KormSklad[i] = this->KormSklad[i];
-
-        this->KormSklad[kolVo] = "Корм " + to_string(kolVo + 1);  this->kolVo++;
-        return(temp);
-    }
     void print()
     {
         for (int i = 0; i < kolVo; i++) cout << "\n " << KormSklad[i];

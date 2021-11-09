@@ -20,7 +20,7 @@ public:
     }
     void Add(Food food1) //Функция инициализации элементов данных
     {
-        if (kolVoKorov > 0) this->ArrResize();
+        if (kolVoKorov > 0) ArrResize();
         Cow cow2;
         cow2.Set(food1);
         cow2.Set_udder();
@@ -56,8 +56,18 @@ public:
     {
         return (arr_cow[numInList - 1].VolumeUdderB(numInList));
     }
+    void CountIllCow(int &illCow)
+    {
+        illCow += this->illCow;
+    }
+    void CountMeatCow(int *meatCow)
+    {
+        (*meatCow) += this->meatCow;
+    }
 
 private:
     int kolVoKorov = 0;
+    int illCow = 3;
+    int meatCow = 4;
     Cow* arr_cow = new Cow[1];
 };
