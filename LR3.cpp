@@ -15,16 +15,13 @@ int main()
 {
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
-    int illCow = 0; int meatCow = 0;
-    List_cow list_cow; Food food;
-    Warehouse warehouse; 
+    Food food; Warehouse warehouse;
+    List_cow list_cow1;
+    List_cow list_cow2(2); 
+    List_cow list_cow3(1, "Бурёнка", "Черно-пёстрая", 6, 450, 6);
+    //Cow cow("Бурёнка", "Черно-пёстрая", 6, 450, 6);
+    list_cow3.Print_list();
 
-    Cowshed cowshed1;
-    cout << "\n Количество коровников на ферме: " << Cowshed::GetKolVo();
-
-    Cowshed cowshed2, cowshed3;
-    cout << "\n\n *Добавлено два коровника*\n";
-    cout << "\n Количество коровников на ферме: " << Cowshed::GetKolVo();
 
     cout << "\n";
     food.Set("Силос"); food.Set("Комбикорм"); food.Set("Солома"); food.Set("Свёкла");

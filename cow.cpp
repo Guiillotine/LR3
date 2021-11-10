@@ -12,6 +12,19 @@ using namespace std;
 class Cow
 {
 public:
+    Cow()
+    {
+        cout << "\n *Запуск конструктора без параметров класса Cow*\n";
+    }
+    Cow(string name, string breed, int age, double weight, int nadoi)
+    {
+        cout << "\n *Запуск конструктора с пятью параметрами класса Cow*\n";
+        this->name = name;
+        this->breed = breed;
+        this->age = age;
+        this->weight = weight;
+        this->nadoi = nadoi;
+    }
     void Set(string name, string breed, int age, double weight, int nadoi)
     {
         if (name != " ") this->name = name;
