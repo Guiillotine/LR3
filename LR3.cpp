@@ -16,6 +16,13 @@ int main()
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
     Food food; Warehouse warehouse;
+    bool a[10]; 
+    for (int i = 0; i < 10; i++) 
+    {
+        cout << "\n Место № " << (i + 1) << "\n Введите 1, чтобы обозначить, что место занято коровой\n 0 - если место свободно : "; cin >> a[i];
+    }
+    Cowshed cowshed(a);
+    cowshed.PrintZanyatMest();
     /*Cowshed cowshed1;
     Cowshed cowshed2(100);
     Cowshed cowshed3(300, 300, 5);
@@ -24,8 +31,8 @@ int main()
     //list_cow1.Print_list();
     //List_cow list_cow2(2); 
     //cout << " \n Количество больных коров на ферме = " << list_cow2.GetIllCow();
-    List_cow list_cow3(2, " ", "Черно-пёстрая", 6, 450, 6);
-    list_cow3.Print_list();
+    //List_cow list_cow3(2, " ", "Черно-пёстрая", 6, 450, 6);
+    //list_cow3.Print_list();
 
     //cout << "\n";
 
