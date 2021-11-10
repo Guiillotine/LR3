@@ -13,11 +13,16 @@ public:
 	Cowshed()
 	{
 		cout << "\n *Запуск конструктора без параметров класса Cowshed*\n";
+		length = 500;
+		width = 500;
+		height = 3;
 		KolVoCowshed++;
 	}
 	Cowshed(int length)
 	{
 		cout << "\n *Запуск конструктора c одним параметром класса Cowshed*\n";
+		width = 500;
+		height = 3;
 		KolVoCowshed++;
 	}
 	Cowshed(int length, int width, int height)
@@ -59,9 +64,9 @@ public:
 	}
 private:
 	static int KolVoCowshed;
-	int length = 500;
-	int width = 500;
-	int height = 3;
+	int length;
+	int width;
+	int height;
 };
 
 int Cowshed::KolVoCowshed = 0;

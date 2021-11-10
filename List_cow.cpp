@@ -23,6 +23,8 @@ public:
     {
         cout << "\n *Запуск конструктора с одним параметром класса List_cow*\n";
         this->illCow = illCow;
+        kolVoKorov = 0;
+        meatCow = 4;
     }
     List_cow(int kolVoKorov, string name, string breed, int age, double weight, int nadoi)
     {

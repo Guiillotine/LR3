@@ -16,15 +16,20 @@ int main()
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
     Food food; Warehouse warehouse;
-    List_cow list_cow1;
+    /*Cowshed cowshed1;
+    Cowshed cowshed2(100);
+    Cowshed cowshed3(300, 300, 5);
+    cout << "\n Количество коровников на ферме: " << Cowshed::GetKolVo();*/
+    //List_cow list_cow1;
+    //list_cow1.Print_list();
     //List_cow list_cow2(2); 
     //cout << " \n Количество больных коров на ферме = " << list_cow2.GetIllCow();
-    //List_cow list_cow3(2, " ", "Черно-пёстрая", 6, 450, 6);
-    //list_cow3.Print_list();
+    List_cow list_cow3(2, " ", "Черно-пёстрая", 6, 450, 6);
+    list_cow3.Print_list();
 
+    //cout << "\n";
 
-    cout << "\n";
-    food.Set("Силос"); food.Set("Комбикорм"); food.Set("Солома"); food.Set("Свёкла");
+    //food.Set("Силос"); food.Set("Комбикорм"); food.Set("Солома"); food.Set("Свёкла");
     /*for (int i = 0; i < 3; i++)
     list_cow.Add(food);
     list_cow.Print_list();*/
