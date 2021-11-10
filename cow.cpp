@@ -15,6 +15,12 @@ public:
     Cow()
     {
         cout << "\n *Запуск конструктора без параметров класса Cow*\n";
+        name = "Буренка";
+        breed = "Черно-пестрая";
+        food = "Сено";
+        age = 4;
+        weight = 400;
+        nadoi = 15;
     }
     Cow(string name, string breed, int age, double weight, int nadoi)
     {
@@ -24,6 +30,10 @@ public:
         this->age = age;
         this->weight = weight;
         this->nadoi = nadoi;
+    }
+    ~Cow()
+    {
+        cout << "\n *Запуск деструктора класса Cow*\n";
     }
     void Set(string name, string breed, int age, double weight, int nadoi)
     {
@@ -111,10 +121,10 @@ private:
         }
     };
     Udder udder;
-    string name = "Буренка";
-    string breed = "Черно-пестрая"; //порода
-    string food = "Сено";
-    int age = 4;
-    double weight = 400;
-    int nadoi = 15; //Надой
+    string name;
+    string breed;
+    string food;
+    int age;
+    double weight;
+    int nadoi;
 };

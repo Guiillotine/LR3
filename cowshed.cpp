@@ -12,9 +12,26 @@ class Cowshed
 public:
 	Cowshed()
 	{
+		cout << "\n *Запуск конструктора без параметров класса Cowshed*\n";
 		KolVoCowshed++;
 	}
-	~Cowshed(){}
+	Cowshed(int length)
+	{
+		cout << "\n *Запуск конструктора c одним параметром класса Cowshed*\n";
+		KolVoCowshed++;
+	}
+	Cowshed(int length, int width, int height)
+	{
+		cout << "\n *Запуск конструктора c тремя параметрами класса Cowshed*\n";
+		this->length = length;
+		this->width = width;
+		this->height = height;
+		KolVoCowshed++;
+	}
+	~Cowshed()
+	{
+		cout << "\n *Запуск деструктора класса Cowshed*\n";
+	}
 	void Set(int length, int width, int height)
 	{
 		this->length = length;
