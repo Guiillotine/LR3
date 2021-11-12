@@ -46,7 +46,7 @@ public:
         this->arr_food = new string[kolVoKorm];
         for (int i = 0; i < kolVoKorm; i++) this->arr_food[i] = food.arr_food[i];
     }
-    ~Food(){ cout << "\n *Запуск деструктора класса Food*\n";}
+    ~Food() { delete[] arr_food;  cout << "\n *Запуск деструктора класса Food*\n"; }
     void Add(string name)
     {
         if (kolVoKorm > 0) ArrResize();
