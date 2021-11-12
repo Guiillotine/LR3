@@ -55,7 +55,7 @@ public:
 	}
 	void Print()
 	{
-		cout << "\n Длина короника:" << length << "\n Ширина короника:" << width << "\n Высота короника:" << height;
+		cout << "\n Длина коровника:" << length << "\n Ширина коровника:" << width << "\n Высота коровника:" << height;
 	}
 	Cowshed& operator ++()
 	{
