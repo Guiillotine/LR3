@@ -47,7 +47,7 @@ public:
         for (int i = 0; i < kolVoKorm; i++) this->arr_food[i] = food.arr_food[i];
     }
     ~Food(){ cout << "\n *Запуск деструктора класса Food*\n";}
-    void Set(string name)
+    void Add(string name)
     {
         if (kolVoKorm > 0) ArrResize();
         arr_food[kolVoKorm] = name;
@@ -70,8 +70,14 @@ public:
     string FoodName(int k) { return (arr_food[k]); }
     void Print() { cout << "\n"; for (int i = 0; i < kolVoKorm; i++) cout << "\n №" << (i + 1) << " " << arr_food[i];cout << "\n"; }
     void ChangeFood(int numb, string newFood) { arr_food[numb - 1] = newFood; }
+    void operator =(const Food& other)
+    {
+        cout << "\n *Перезрузка оператора \'=\' (глубокое копирование)*\n";
+        this->kolVoKorm = other.kolVoKorm;
+        this->arr_food = new string[kolVoKorm];
+        for (int i = 0; i < kolVoKorm; i++) this->arr_food[i] = other.arr_food[i];
+    }   
     friend void Warehouse::AddKorm(Food& food);
-
 private:
     string* arr_food = new string[10];
     int kolVoKorm = 0;

@@ -16,10 +16,12 @@ int main()
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
     Food food1;
-    food1.Set("Силос"); food1.Set("Комбикорм"); food1.Set("Солома"); food1.Set("Свёкла");
+    food1.Add("Силос"); food1.Add("Комбикорм"); food1.Add("Солома"); food1.Add("Свёкла");
     cout << "\n СОДЕРЖИМОЕ СПИСКА КОРМОВ 1:";
     food1.Print();
-    Food food2(food1);
+    Food food2;
+    food2 = food1;
+    cout << "\n *присвоение списка 1 списку 2*\n";
     cout << "\n СОДЕРЖИМОЕ СПИСКА КОРМОВ 1:";
     food1.Print();
     cout << "\n СОДЕРЖИМОЕ СПИСКА КОРМОВ 2:";
