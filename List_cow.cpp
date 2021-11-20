@@ -14,21 +14,18 @@ class List_cow
 public:
     List_cow()
     {
-        cout << "\n *Запуск конструктора без параметров класса List_cow*\n";
         kolVoKorov = 0;
         illCow = 3;
         meatCow = 4;
     }
     List_cow(int illCow)
     {
-        cout << "\n *Запуск конструктора с одним параметром класса List_cow*\n";
         this->illCow = illCow;
         kolVoKorov = 0;
         meatCow = 4;
     }
     List_cow(int kolVoKorov, string name, string breed, int age, double weight, int nadoi)
     {
-        cout << "\n *Запуск конструктора с шестью параметрами класса List_cow*\n";
         this->kolVoKorov = 0;
         if (name == " ") name = "Корова ";
         string a = "";
@@ -43,7 +40,6 @@ public:
     }
     ~List_cow()
     {
-        cout << "\n *Запуск деструктора класса List_cow*\n";
         delete[] arr_cow;
     }
     void ArrResize() //Функция увеличения размера массива

@@ -38,15 +38,14 @@ private:
 class Food
 {
 public:
-    Food() { cout << "\n *Запуск конструктора без параметров класса Food*\n"; }
+    Food() {}
     Food(const Food &food)
     {
-        cout << "\n *Запуск конструктора копии класса Food (глубокое копирование)*\n";
         this->kolVoKorm = food.kolVoKorm;
         this->arr_food = new string[kolVoKorm];
         for (int i = 0; i < kolVoKorm; i++) this->arr_food[i] = food.arr_food[i];
     }
-    ~Food() { delete[] arr_food;  cout << "\n *Запуск деструктора класса Food*\n"; }
+    ~Food() { delete[] arr_food; }
     void Add(string name)
     {
         if (kolVoKorm > 0) ArrResize();

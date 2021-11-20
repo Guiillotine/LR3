@@ -14,7 +14,6 @@ class Cow
 public:
     Cow()
     {
-        cout << "\n *Запуск конструктора без параметров класса Cow*\n";
         name = "Буренка";
         breed = "Черно-пестрая";
         food = "Сено";
@@ -24,7 +23,6 @@ public:
     }
     Cow(string name, string breed, int age, double weight, int nadoi)
     {
-        cout << "\n *Запуск конструктора с пятью параметрами класса Cow*\n";
         this->name = name;
         this->breed = breed;
         this->age = age;
@@ -33,7 +31,6 @@ public:
     }
     ~Cow()
     {
-        cout << "\n *Запуск деструктора класса Cow*\n";
     }
     void Set(string name, string breed, int age, double weight, int nadoi)
     {
@@ -62,7 +59,7 @@ public:
         for (int i = 0; i < spisKorm.GetKolVo(); i++)
             if ((i + 1) == a) food = spisKorm.FoodName(i);
 
-        cout << "\n\n Введите возраст коровы (лет): "; cin >> age;
+        cout << "\n\n Введите возраст коровы (лет): "; scanf("%d", age);//cin >> age;
 
         cout << "\n Введите вес коровы (кг): "; cin >> weight;
 

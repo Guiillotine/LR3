@@ -12,32 +12,28 @@ class Cowshed
 public:
 	Cowshed()
 	{
-		cout << "\n *Запуск конструктора без параметров класса Cowshed*\n";
-		length = 500;
-		width = 500;
-		height = 3;
+		length = 200;
+		width = 200;
+		height = 6;
 		KolVoCowshed++;
 	}
 	Cowshed(int length)
 	{
-		cout << "\n *Запуск конструктора c одним параметром класса Cowshed*\n";
-		width = 500;
-		height = 3;
+		width = 200;
+		height = 6;
 		KolVoCowshed++;
 	}
 	Cowshed(bool zanyatMest[])
 	{
-	cout << "\n *Запуск конструктора c одним параметром класса Cowshed*\n";
 	for (int i = 0; i < 10; i++)
 		this->zanyatMest[i] = zanyatMest[i];
-	length = 500;
-	width = 500;
-	height = 3;
+	length = 200;
+	width = 200;
+	height = 6;
 	KolVoCowshed++;
 	}
 	Cowshed(int length, int width, int height)
 	{
-		cout << "\n *Запуск конструктора c тремя параметрами класса Cowshed*\n";
 		this->length = length;
 		this->width = width;
 		this->height = height;
@@ -45,13 +41,45 @@ public:
 	}
 	~Cowshed()
 	{
-		cout << "\n *Запуск деструктора класса Cowshed*\n";
 	}
 	void Set(int length, int width, int height)
 	{
-		this->length = length;
-		this->width = width;
-		this->height = height;
+		try
+		{
+			this->length = length;
+			if (length < 0) throw exception("\n Ошибка. Длина не может быть отрицательной\n");
+			if (length == 0) throw exception("\n Ошибка. Длина не может быть равна нулю\n");
+		}
+		catch (exception& ex)
+		{
+			cout << ex.what();
+			this->length = 200;
+			cout << "\n Коровнику присвоена усреднённая длина 200 м\n";
+		}
+		try
+		{
+			this->width = width;
+			if (width < 0) throw exception("\n Ошибка. Ширина не может быть отрицательной\n");
+			if (width == 0) throw exception("\n Ошибка. Ширина не может быть равна нулю\n");
+		}
+		catch (exception& ex)
+		{
+			cout << ex.what();
+			this->width = 200;
+			cout << "\n Коровнику присвоена усреднённая ширина 200 м\n";
+		}
+		try
+		{
+			this->height = height;
+			if (height < 0) throw exception("\n Ошибка. Высота не может быть отрицательной\n");
+			if (height == 0) throw exception("\n Ошибка. Высота не может быть равна нулю\n");
+		}
+		catch (exception& ex)
+		{
+			cout << ex.what();
+			this->height = 6;
+			cout << "\n Коровнику присвоена усреднённая высота 6 м\n";
+		}
 	}
 	void Print()
 	{
