@@ -18,8 +18,13 @@ int main()
     Food food; 
     food.Add("Силос"); food.Add("Комбикорм"); food.Add("Солома"); food.Add("Свёкла");
     List_cow list_cow;
-    Cowshed cowshed;
-    cowshed.Set(0, 250, -1);
-    cowshed.Print();
+    try
+    {
+        list_cow.Add(food);
+    }
+    catch (exception& ex)
+    {
+        cout << ex.what();
+    }
     cout << "\n";
 }

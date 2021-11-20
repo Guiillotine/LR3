@@ -40,7 +40,7 @@ public:
         if (weight != 0) this->weight = weight;
         if (nadoi != 0) this->nadoi = nadoi;
     }
-    void Set(Food spisKorm) //Функция инициализации элементов данных
+    void Set(Food spisKorm)
     {
         int a;
         cout << "\n Добавление новой коровы \n";
@@ -59,11 +59,14 @@ public:
         for (int i = 0; i < spisKorm.GetKolVo(); i++)
             if ((i + 1) == a) food = spisKorm.FoodName(i);
 
-        cout << "\n\n Введите возраст коровы (лет): "; scanf("%d", age);//cin >> age;
+        cout << "\n\n Введите возраст коровы (лет): "; //cin >> age;
+        if (!(scanf("%d", &age))) throw exception("\n Ошибка. Введены текстовые данные вместо числовых\n");
 
-        cout << "\n Введите вес коровы (кг): "; cin >> weight;
+        cout << "\n Введите вес коровы (кг): "; //cin >> weight;
+        if (!(scanf("%lf", &weight))) throw exception("\n Ошибка. Введены текстовые данные вместо числовых\n");
 
-        cout << "\n Введите надой коровы (л/сут): "; cin >> nadoi;
+        cout << "\n Введите надой коровы (л/сут): "; //cin >> nadoi;
+        if (!(scanf("%d", &nadoi))) throw exception("\n Ошибка. Введены текстовые данные вместо числовых\n");
     }
     void Print_cow()
     {
