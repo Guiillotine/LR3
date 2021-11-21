@@ -51,11 +51,38 @@ public:
     void Add(Food food1) //Функция инициализации элементов данных
     {
         if (kolVoKorov > 0) ArrResize();
-        Cow cow2;
-        cow2.Set(food1);
+        Cow cow;
+        cow.Set(food1);
+        int x, y;
+        cout << "\n Введите номер ряда стоила коровы: \n "; cin >> x;
+        cout << "\n Введите номер места стоила коровы: \n "; cin >> y;
+        x = x - 1;
+        y = y - 1;
+        arr_Korovnik[x][y] = cow;
+        arr_cow[kolVoKorov] = cow;
         //cow2.Set_udder();
-        arr_cow[kolVoKorov] = cow2;
         kolVoKorov++;
+    }
+    void PrintArrKorovnik()
+    {
+        cout << "\n     План расположения коров в стойлах:\n"; cout << " _____________________________________________\n";
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 5; j++)
+            {
+                cout << " | ";
+                if (arr_Korovnik[i][j].GetName() == "Корова") cout << " --- ";
+                else cout << arr_Korovnik[i][j].GetName();
+            }
+            cout << " |\n";
+        }
+        cout << " _____________________________________________\n";
+    }
+    Cow GetCow(int x, int y)
+    {
+        x = x - 1;
+        y = y - 1;
+        return arr_Korovnik[x][y];
     }
     void Print_list()
     {
@@ -103,5 +130,6 @@ private:
     int kolVoKorov;
     int illCow;
     int meatCow;
+    Cow arr_Korovnik[3][5];
     Cow* arr_cow = new Cow[1];
 };

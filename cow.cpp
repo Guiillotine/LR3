@@ -14,7 +14,7 @@ class Cow
 public:
     Cow()
     {
-        name = "Буренка";
+        name = "Корова";
         breed = "Черно-пестрая";
         food = "Сено";
         age = 4;
@@ -87,6 +87,11 @@ public:
     void Print_udder()
     {
         udder.Print_udder();
+    }
+    string GetName()
+    {
+        return name;
+        //cout << " бэ";
     }
 private:
     class Udder
