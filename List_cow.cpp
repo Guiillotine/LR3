@@ -53,13 +53,13 @@ public:
         if (kolVoKorov > 0) ArrResize();
         Cow cow;
         cow.Set(food1);
-        int x, y;
+        arr_cow[kolVoKorov] = cow;
+        /*int x, y;
         cout << "\n Введите номер ряда стоила коровы: \n "; cin >> x;
         cout << "\n Введите номер места стоила коровы: \n "; cin >> y;
         x = x - 1;
         y = y - 1;
-        arr_Korovnik[x][y] = cow;
-        arr_cow[kolVoKorov] = cow;
+        arr_Korovnik[x][y] = cow;*/
         //cow2.Set_udder();
         kolVoKorov++;
     }
