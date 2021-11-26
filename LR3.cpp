@@ -8,6 +8,7 @@
 #include "food.cpp"
 #include "List_cow.cpp"
 #include "cowshed.cpp"
+#include "building.cpp"
 using namespace std;
 
 
@@ -16,13 +17,12 @@ int main()
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
     Food food; 
-    food.Add("Силос"); food.Add("Комбикорм"); food.Add("Солома"); food.Add("Свёкла");
-    List_cow list_cow;
-    for (int i = 0; i < 3; i++) list_cow.Add(food);
-    list_cow.Print_list();
- /* for (int i = 0; i < 3; i++) list_cow.Add(food);
-    list_cow.PrintArrKorovnik();
-    cout << "\n Информация о корове, находящейся в стоиле во 2 ряду на 3 месте:\n";
-    list_cow.GetCow(2,3).Print_cow();*/
+    //food.Add("Силос"); food.Add("Комбикорм"); food.Add("Солома"); food.Add("Свёкла");
+    Building building(60,15,8,2);
+    Garage garage(20,10,4,1,25);
+    building.Print();
+    cout << "\n";
+    garage.Print();
+
     cout << "\n";
 }

@@ -91,7 +91,6 @@ public:
     string GetName()
     {
         return name;
-        //cout << " бэ";
     }
 private:
     class Udder

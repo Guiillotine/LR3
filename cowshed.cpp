@@ -105,7 +105,8 @@ public:
 		cout << "\n 1 - место занято коровой\n 0 - место свободно\n Наполненность коровника следующая:\n";
 		for (int i = 0; i < 10; i++)  cout << " " << zanyatMest[i];
 	}
-private:
+//private:
+protected:
 	static int KolVoCowshed;
 	int length;
 	int width;
