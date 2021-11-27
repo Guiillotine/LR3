@@ -21,13 +21,14 @@ int main()
     Building building;
     cin >> building;
     cout << building;
+    cout << "\n";
     Garage garage;
-    garage = building;
+    cin >> garage;
+    cout << garage;
+    //garage = building;
     /*building.Set(60, 15, 8, 2);
     garage.Set(20, 10, 4, 1, 25);*/
-    //building.Print();
     //cout << "\n";
-    garage.Print();
     /*cout << "\n\n Площадь этажа здания равна " << building.GetFloorS();
     cout << "\n Площадь гаража равна " << garage.GetFloorS();*/
 

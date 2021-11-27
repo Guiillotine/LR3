@@ -101,6 +101,15 @@ public:
 		this->kolVoFloor = b.GetkolVoFloor();
 		this->kolVoCars = 0;
 	}
+	friend void operator << (ostream& o, Garage r)
+	{
+		cout << "\n Длина гаража: " << r.length << "\n Ширина гаража: " << r.width << "\n Высота гаража: " << r.height << "\n Количество этажей: " << r.kolVoFloor << "\n Количество машиномест: " << r.kolVoCars;
+	}
+	friend Building operator >> (istream& i, Garage& r)
+	{
+		cin >> r.length >> r.width >> r.height >> r.kolVoFloor >> r.kolVoCars;
+		return r;
+	}
 	void Set(int length, int width, int height, int kolVoFloor, int kolVoCars)
 	{
 		Building::Set(length, width, height, kolVoFloor);
