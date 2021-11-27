@@ -30,6 +30,15 @@ public:
 	~Building()
 	{
 	}
+	friend void operator << (ostream& o, Building r)
+	{
+		cout << "\n Длина здания: " << r.length << "\n Ширина здания: " << r.width << "\n Высота здания: " << r.height << "\n Количество этажей: " << r.kolVoFloor;
+	}
+	friend Building operator >> (istream& i, Building& r)
+	{
+		cin >> r.length >> r.width >> r.height >> r.kolVoFloor;
+		return r;
+	}
 	void Set(int length, int width, int height, int kolVoFloor)
 	{
 		this->length = length;
@@ -91,7 +100,6 @@ public:
 		this->height = b.Getheight();
 		this->kolVoFloor = b.GetkolVoFloor();
 		this->kolVoCars = 0;
-
 	}
 	void Set(int length, int width, int height, int kolVoFloor, int kolVoCars)
 	{

@@ -18,7 +18,9 @@ int main()
     SetConsoleOutputCP(1251);
     Food food; 
     //food.Add("Силос"); food.Add("Комбикорм"); food.Add("Солома"); food.Add("Свёкла");
-    Building building(60, 15, 8, 2);
+    Building building;
+    cin >> building;
+    cout << building;
     Garage garage;
     garage = building;
     /*building.Set(60, 15, 8, 2);
