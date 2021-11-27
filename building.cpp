@@ -46,10 +46,6 @@ public:
 		this->height = height;
 		this->kolVoFloor = kolVoFloor;
 	}
-	/*virtual void Print()
-	{
-		cout << "\n Длина здания: " << length << "\n Ширина здания: " << width << "\n Высота здания: " << height;
-	}*/
 	int Getlength()
 	{
 		return length;
@@ -85,8 +81,8 @@ protected:
 class Garage : public Building
 {
 public:
-	Garage()
-	{
+	Garage() : Building(20, 15, 3, 1)
+	{		
 		kolVoCars = 15;
 	}
 	Garage(int length, int width, int height, int kolVoFloor, int kolVoCars) : Building(length, width, height, kolVoFloor)

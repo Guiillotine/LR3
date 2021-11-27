@@ -18,17 +18,21 @@ int main()
     SetConsoleOutputCP(1251);
     Food food; 
     //food.Add("Силос"); food.Add("Комбикорм"); food.Add("Солома"); food.Add("Свёкла");
-    Building building;
-    cin >> building;
-    cout << building;
+    //Building building;
+    //cout << building;
+    //cout << garage;
+    //Building building(60, 15, 8, 2);
+    //Garage garage(20, 10, 4, 1, 25);
+    Building *pbuilding = new Building();
+    Garage *garage = new Garage();
+    pbuilding->Print();
     cout << "\n";
-    Garage garage;
-    cin >> garage;
-    cout << garage;
-    //garage = building;
-    /*building.Set(60, 15, 8, 2);
-    garage.Set(20, 10, 4, 1, 25);*/
-    //cout << "\n";
+    pbuilding = garage;
+    pbuilding->Print();
+    cout << "\n";
+ 
+    
+
     /*cout << "\n\n Площадь этажа здания равна " << building.GetFloorS();
     cout << "\n Площадь гаража равна " << garage.GetFloorS();*/
 
