@@ -30,16 +30,20 @@ public:
 	~Building()
 	{
 	}
-	void Set(int length, int width, int height)
+	void Set(int length, int width, int height, int kolVoFloor)
 	{
 		this->length = length;
 		this->width = width;
 		this->height = height;
 		this->kolVoFloor = kolVoFloor;
 	}
-	virtual void Print()
+	/*virtual void Print()
 	{
 		cout << "\n Длина здания: " << length << "\n Ширина здания: " << width << "\n Высота здания: " << height;
+	}*/
+	virtual void Print()
+	{
+		cout << "\n Длина здания: " << length << "\n Ширина здания: " << width << "\n Высота здания: " << height << "\n Количество этажей: " << kolVoFloor;
 	}
 	int GetFloorS()
 	{
@@ -60,17 +64,18 @@ public:
 	{
 		kolVoCars = 15;
 	}
-	Garage(int length, int width, int height, int kolVoFloor, int kolVoCars)
+	Garage(int length, int width, int height, int kolVoFloor, int kolVoCars) : Building(length, width, height, kolVoFloor)
 	{
-		this->length = length;
-		this->width = width;
-		this->height = height;
-		this->kolVoFloor = kolVoFloor;
+		this->kolVoCars = kolVoCars;
+	}
+	void Set(int length, int width, int height, int kolVoFloor, int kolVoCars)
+	{
+		Building::Set(length, width, height, kolVoFloor);
 		this->kolVoCars = kolVoCars;
 	}
 	void Print() override
 	{
-		cout << "\n Длина гаража: " << length << "\n Ширина гаража: " << width << "\n Высота гаража: " << height << "\n Количество машиномест: " << kolVoCars;
+		cout << "\n Длина гаража: " << length << "\n Ширина гаража: " << width << "\n Высота гаража: " << height << "\n Количество этажей: " << kolVoFloor << "\n Количество машиномест: " << kolVoCars;
 	}
 private:
 	int kolVoCars;
