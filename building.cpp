@@ -41,6 +41,22 @@ public:
 	{
 		cout << "\n Длина здания: " << length << "\n Ширина здания: " << width << "\n Высота здания: " << height;
 	}*/
+	int Getlength()
+	{
+		return length;
+	}
+	int Getwidth()
+	{
+		return width;
+	}
+	int Getheight()
+	{
+		return height;
+	}
+	int GetkolVoFloor()
+	{
+		return kolVoFloor;
+	}
 	virtual void Print()
 	{
 		cout << "\n Длина здания: " << length << "\n Ширина здания: " << width << "\n Высота здания: " << height << "\n Количество этажей: " << kolVoFloor;
@@ -67,6 +83,15 @@ public:
 	Garage(int length, int width, int height, int kolVoFloor, int kolVoCars) : Building(length, width, height, kolVoFloor)
 	{
 		this->kolVoCars = kolVoCars;
+	}
+	void  operator =(Building b)
+	{
+		this->length = b.Getlength();
+		this->width = b.Getwidth();
+		this->height = b.Getheight();
+		this->kolVoFloor = b.GetkolVoFloor();
+		this->kolVoCars = 0;
+
 	}
 	void Set(int length, int width, int height, int kolVoFloor, int kolVoCars)
 	{
