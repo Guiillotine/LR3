@@ -8,132 +8,62 @@
 #include <ctype.h>
 #include <stdlib.h>
 #include <windows.h>
-#include "worker.h"
 using namespace std;
 
-worker::worker()
+class Worker
 {
-	strcpy(fio,"Отсутствует");
-	strcpy(prof, "Отсутствует");
-	strcpy(stat, "В норме");
-	year = 0;
-	pay = 0;
-}
-
-worker::~worker()
-{
-
-}
-
-void worker::set_new_worker()
-{
-	SetConsoleCP(1251); //задаем кодировку для вывода символов на экран
-	SetConsoleOutputCP(1251); //задаем кодировку для ввода символов с клавиатуры в консоль
-	//system("cls");
-	printf("\n Добавление нового сотрудника\n ");
-	for (int i = 0; i < 28; i++) printf("-");
-	printf("\n\n Укажите ФИО сотрудника: ");
-	gets_s(fio);
-
-	printf("\n Укажите год рождения сотрудника: ");
-	cin >> year; while (getchar() != '\n');
-
-	printf("\n Укажите должность сотрудника: ");
-	gets_s(prof);
-
-	printf("\n Укажите оклад сотрудника(в рублях): ");
-	cin >> pay;
-
-	strcpy(stat, "В норме");
-	while (getchar() != '\n');
-}
-
-
-void worker::get_print_worker()
-{
-	SetConsoleCP(1251); //задаем кодировку для вывода символов на экран
-	SetConsoleOutputCP(1251); //задаем кодировку для ввода символов с клавиатуры в консоль
-	printf("\n ФИО СОТРУДНИКА: %s\n ГОД РОЖДЕНИЯ СОТРУДНИКА: %d\n ДОЛЖНОСТЬ: %s\n ОКЛАД (в рублях): %.3f\n СТАТУС: %s\n\n", fio, year, prof, pay, stat);
-}
-
-
-void worker::change_stat(int a)
-{
-	switch (a)
+public:
+	Worker()
 	{
-	case 1:
-		strcpy(stat, "В норме");
-		break;
-	case 2:
-		strcpy(stat, "Болеет");
-		break;
-	case 3:
-		strcpy(stat, "В отпуске");
-		break;
 	}
-}
-
-
-/////////////////////////////////////////////////////////////////////////////////////
-
-list_worker::list_worker()
-{
-	num = 0;
-}
-
-list_worker::~list_worker()
-{
-	delete[] arr_worker;
-}
-
-void list_worker::add(worker worker1)
-{
-	if (num > 0) this->arr_inc(); // увеличение размера динамического массива
-	*(arr_worker + num) = worker1;
-	num++; //Количество сотрудников в списке
-}
-
-
-void list_worker::get_print_list()
-{
-	worker worker2;
-	for (int i = 0; i < num; i++)
+	Worker(string name, string surname, int age, char sex, int oklad)
 	{
-		cout << "\n № " << i + 1;
-		worker2 = *(arr_worker + i);
-		worker2.get_print_worker();
+		this->name = name;
+		this->surname = surname;
+		this->age = age;
+		this->sex = sex;
+		this->oklad = oklad;
 	}
-}
-
-void list_worker::arr_inc()
-{
-	worker* arr_worker2 = new worker[num+1];
-	for (int i = 0; i < num; i++) *(arr_worker2 + i) = *(arr_worker + i);
-	delete [] arr_worker;
-	arr_worker = arr_worker2;
-}
-
-int list_worker::num_sp()
-{
-	return(num);
-}
-
-void list_worker::change_stat()
-{
-	SetConsoleCP(1251); //задаем кодировку для вывода символов на экран
-	SetConsoleOutputCP(1251); //задаем кодировку для ввода символов с клавиатуры в консоль
-	//system("cls");
-	int a, numb = 0;
-	this->get_print_list();
-	do
+	~Worker()
 	{
-		printf("\n Изменение статуса сотрудника\n Введите номер сотрудника, статус которого следует изменить: ");
-		cin >> numb;
-	} while ((numb < 1) || (numb > num));
-	do
+	}
+	virtual void Print()
 	{
-		printf("\n\n 1->В норме\n 2->Болеет\n 3->В отпуске\n\n Введите номер нового статуса: ");
-		std::cin >> a;
-	} while ((a < 1) || (a > 3));
-	arr_worker[numb - 1].change_stat(a);
-}
+		cout << "\n Имя: " << name << "\n Фамилия: " << surname << "\n Возраст: " << age << "\n Пол: " << sex << "\n Оклад: " << oklad;
+	}
+	virtual int ZarPlat() = 0;
+
+protected:
+	string name;
+	string surname;
+	int age;
+	char sex;
+	int oklad;
+};
+
+
+class Cleaner : public Worker
+{
+public:
+	Cleaner()
+	{
+	}
+	Cleaner(string name, string surname, int age, char sex, int okla) : Worker(name, surname, age, sex, oklad)
+	{
+	}
+	~Cleaner()
+	{
+	}
+	virtual void Print()
+	{
+		cout << "\n Имя: " << name << "\n Фамилия: " << surname << "\n Возраст: " << age << "\n Пол: " << sex << "\n Оклад: " << sex << "\n Оклад: " << oklad << "\n Районный коэффициент: " << rayKoef << "\n Премия: " << prem;
+	}
+	int ZarPlat()
+	{
+		return(oklad + oklad * rayKoef / 100 + oklad * prem / 100);
+	}
+
+private:
+	int rayKoef = 15;
+	int prem = 20;
+};
