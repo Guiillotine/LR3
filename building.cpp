@@ -115,7 +115,7 @@ public:
 	{
 		cout << "\n Длина гаража: " << length << "\n Ширина гаража: " << width << "\n Высота гаража: " << height << "\n Количество этажей: " << kolVoFloor << "\n Количество машиномест: " << kolVoCars;
 	}
-	bool operator > (Garage a)//
+	bool operator > (Garage a)
 	{
 		if (GetFloorS() > a.GetFloorS()) return(1);
 		else return (0);

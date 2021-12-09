@@ -17,14 +17,14 @@ public:
 	{
 
 	}
-	T Max(T a, T b)
+	bool Max(T a, T b)
 	{
-		if (a > b) return (a);
-		else return (b);
+		if (a > b) return (1);
+		else return (0);
 	}
-	T Min(T a, T b)
+	bool Min(T a, T b)
 	{
-		if (a < b) return (a);
-		else return (b);
+		if (a < b) return (1);
+		else return (0);
 	}
 };
