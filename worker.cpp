@@ -56,11 +56,21 @@ public:
 	}
 	virtual void Print()
 	{
-		cout << "\n Имя: " << name << "\n Фамилия: " << surname << "\n Возраст: " << age << "\n Пол: " << sex << "\n Оклад: " << oklad << "\n Районный коэффициент: " << rayKoef << " %\n Премия: " << prem <<" %";
+		cout << "\n Имя: " << name << "\n Фамилия: " << surname << "\n Возраст: " << age << "\n Пол: " << sex << "\n Оклад: " << oklad; //<< "\n Районный коэффициент: " << rayKoef << " %\n Премия: " << prem <<" %";
 	}
 	int ZarPlat()
 	{
 		return(oklad + oklad * rayKoef / 100 + oklad * prem / 100);
+	}
+	bool operator > (Cleaner a)
+	{
+		if (oklad > a.oklad) return(1);
+		else return (0);
+	}
+	bool operator < (Cleaner a)
+	{
+		if (oklad < a.oklad) return(1);
+		else return (0);
 	}
 
 private:
