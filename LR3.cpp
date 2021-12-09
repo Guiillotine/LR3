@@ -27,9 +27,9 @@ int main()
     cout << "\n РАБОТНИК 2:\n";
     cleaner2.Print(); cout << "\n";
     Compare<Cleaner> A;
-    cout << "\n Работник с наибольшим окладом:\n";
+    cout << "\n Работник с большим окладом:\n";
     if (A.Max(cleaner1, cleaner2)) cleaner1.Print(); else cleaner2.Print();
-    cout << "\n\n Работник с наименьшим окладом:\n";
+    cout << "\n\n Работник с меньшим окладом:\n";
     if (A.Min(cleaner1, cleaner2)) cleaner1.Print(); else cleaner2.Print();
     
     Garage garage1(20, 15, 3, 1, 15);
@@ -39,9 +39,9 @@ int main()
     cout << "\n\n ГАРАЖ 2:\n";
     garage2.Print(); cout << "\n";
     Compare<Garage> B;
-    cout << "\n Гараж с наибольшей площадью:\n";
+    cout << "\n Гараж с большей площадью:\n";
     if (B.Max(garage1, garage2)) garage1.Print(); else garage2.Print();
-    cout << "\n\n Гараж с наименьшей площадью:\n";
+    cout << "\n\n Гараж с меньшей площадью:\n";
     if (B.Min(garage1, garage2)) garage1.Print(); else garage2.Print();
     cout << "\n";
     
