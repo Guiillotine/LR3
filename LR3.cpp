@@ -44,13 +44,6 @@ int main()
     cout << "\n\n Гараж с наименьшей площадью:\n";
     B.Min(garage1, garage2).Print();
     cout << "\n";
-
-    /*Admin admin("Сидорова", "Ольга", 42, 'Ж', 25000);
-    admin.Print();
-    cout << "\n\n Зарплата администратора: " << admin.ZarPlat() << " р.\n\n";
-    Director director("Бучнев", "Алексей", 42, 'М', 60000, 60);
-    director.Print();
-    cout << "\n\n Зарплата директора: " << director.ZarPlat() << " р.\n\n";*/
     
 
     //food.Add("Силос"); food.Add("Комбикорм"); food.Add("Солома"); food.Add("Свёкла");
