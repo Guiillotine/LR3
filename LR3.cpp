@@ -16,7 +16,7 @@
 
 using namespace std;
 
-bool cmd(Garage g1, Garage g2)
+bool SortS(Garage g1, Garage g2)
 {
     if (g1.GetFloorS() < g2.GetFloorS()) return true;
     else return false;
@@ -27,22 +27,17 @@ int main()
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
 
-
-
-    
-    Garage garage1(20, 15, 3, 1, 15);
-    cout << "\n\n\n ГАРАЖ 1:\n";
-    garage1.Print();
-    Garage garage2(25, 20, 3, 1, 20);
-    cout << "\n\n ГАРАЖ 2:\n";
-    garage2.Print(); cout << "\n";
-    Compare<Garage> B;
-    cout << "\n Гараж с большей площадью:\n";
-    if (B.Max(garage1, garage2)) garage1.Print(); else garage2.Print();
-    cout << "\n\n Гараж с меньшей площадью:\n";
-    if (B.Min(garage1, garage2)) garage1.Print(); else garage2.Print();
-    cout << "\n";
-    
+    vector <Garage> GarageList;
+    Garage garage1(15, 15, 2, 1, 10), garage2(20, 25, 3, 1, 20);
+    Garage garage3(10, 15, 3, 1, 12), garage4(20, 15, 3, 1, 15), garage5(10, 10, 2, 1, 5);
+    GarageList.clear();
+    GarageList.push_back(garage1); GarageList.push_back(garage2);
+    GarageList.push_back(garage3); GarageList.push_back(garage4); GarageList.push_back(garage5);
+    cout << "\n СОРТИРОВКА ГАРАЖЕЙ ПО ВОЗРАСТАНИЮ ПЛОЩАДИ\n\n СПИСОК ГАРАЖЕЙ ДО СОРТИРОВКИ:\n";
+    for (int i = 0; i < 5; i++) { GarageList[i].Print(); cout << "\n"; }
+    sort(GarageList.begin(), GarageList.end(), SortS);
+    cout << "\n СПИСОК ГАРАЖЕЙ ПОСЛЕ СОРТИРОВКИ:\n";
+    for (int i = 0; i < 5; i++) { GarageList[i].Print(); cout << "\n"; }
 
     //Food food; food.Add("Силос"); food.Add("Комбикорм"); food.Add("Солома"); food.Add("Свёкла");
     cout << "\n";
