@@ -4,6 +4,8 @@
 #include <conio.h>
 #include <string>
 #include <windows.h>
+#include <vector>
+#include <algorithm>
 #include "cow.cpp"
 #include "food.cpp"
 #include "List_cow.cpp"
@@ -11,26 +13,22 @@
 #include "building.cpp"
 #include "worker.cpp"
 #include "compare.cpp"
+
 using namespace std;
 
+bool cmd(Garage g1, Garage g2)
+{
+    if (g1.GetFloorS() < g2.GetFloorS()) return true;
+    else return false;
+}
 
 int main()
 {
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
-    Food food; 
 
-    Cleaner cleaner1("Иванов", "Иван", 60, 'М', 22000);
-    cout << "\n РАБОТНИК 1:\n";
-    cleaner1.Print(); cout << "\n";
-    Cleaner cleaner2("Бучнев", "Алексей", 42, 'М', 20000);
-    cout << "\n РАБОТНИК 2:\n";
-    cleaner2.Print(); cout << "\n";
-    Compare<Cleaner> A;
-    cout << "\n Работник с большим окладом:\n";
-    if (A.Max(cleaner1, cleaner2)) cleaner1.Print(); else cleaner2.Print();
-    cout << "\n\n Работник с меньшим окладом:\n";
-    if (A.Min(cleaner1, cleaner2)) cleaner1.Print(); else cleaner2.Print();
+
+
     
     Garage garage1(20, 15, 3, 1, 15);
     cout << "\n\n\n ГАРАЖ 1:\n";
@@ -46,6 +44,6 @@ int main()
     cout << "\n";
     
 
-    //food.Add("Силос"); food.Add("Комбикорм"); food.Add("Солома"); food.Add("Свёкла");
+    //Food food; food.Add("Силос"); food.Add("Комбикорм"); food.Add("Солома"); food.Add("Свёкла");
     cout << "\n";
 }
