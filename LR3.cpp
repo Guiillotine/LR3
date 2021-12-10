@@ -16,9 +16,9 @@
 
 using namespace std;
 
-bool SortS(Garage g1, Garage g2)
+bool SortS(Building *b1, Building *b2)
 {
-    if (g1.GetFloorS() < g2.GetFloorS()) return true;
+    if (b1->GetFloorS() < b2->GetFloorS()) return true;
     else return false;
 }
 
@@ -27,17 +27,19 @@ int main()
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
 
-    vector <Garage> GarageList;
-    Garage garage1(15, 15, 2, 1, 10), garage2(20, 25, 3, 1, 20);
-    Garage garage3(10, 15, 3, 1, 12), garage4(20, 15, 3, 1, 15), garage5(10, 10, 2, 1, 5);
-    GarageList.clear();
-    GarageList.push_back(garage1); GarageList.push_back(garage2);
-    GarageList.push_back(garage3); GarageList.push_back(garage4); GarageList.push_back(garage5);
-    cout << "\n СОРТИРОВКА ГАРАЖЕЙ ПО ВОЗРАСТАНИЮ ПЛОЩАДИ\n\n СПИСОК ГАРАЖЕЙ ДО СОРТИРОВКИ:\n";
-    for (int i = 0; i < 5; i++) { GarageList[i].Print(); cout << "\n"; }
-    sort(GarageList.begin(), GarageList.end(), SortS);
-    cout << "\n СПИСОК ГАРАЖЕЙ ПОСЛЕ СОРТИРОВКИ:\n";
-    for (int i = 0; i < 5; i++) { GarageList[i].Print(); cout << "\n"; }
+    vector <Building*> BuildingList;
+    vector<Building*>::iterator  ib;
+    Garage *garage1 = new Garage(15, 15, 2, 1, 10), *garage2 = new Garage(20, 25, 3, 1, 20), *garage3 = new Garage(20, 15, 3, 1, 15);
+    Building *building1 = new Building(50, 50, 6, 2), *building2 = new Building(30, 45, 9, 3);
+    BuildingList.clear();
+    BuildingList.push_back(garage1); BuildingList.push_back(building1);
+    BuildingList.push_back(garage2); BuildingList.push_back(building2); BuildingList.push_back(garage3);
+    cout << "\n СОРТИРОВКА ЗДАНИЙ ПО ВОЗРАСТАНИЮ ПЛОЩАДИ\n\n СПИСОК ЗДАНИЙ ДО СОРТИРОВКИ:\n";
+    for (ib = BuildingList.begin(); ib != BuildingList.end(); ++ib) { (*ib)->Print(); cout << "\n"; }
+    sort(BuildingList.begin(), BuildingList.end(), SortS);
+    cout << "\n СПИСОК ЗДАНИЙ ПОСЛЕ СОРТИРОВКИ:\n";
+    for (ib = BuildingList.begin(); ib != BuildingList.end(); ++ib) { (*ib)->Print(); cout << "\n"; }
+
 
     //Food food; food.Add("Силос"); food.Add("Комбикорм"); food.Add("Солома"); food.Add("Свёкла");
     cout << "\n";
